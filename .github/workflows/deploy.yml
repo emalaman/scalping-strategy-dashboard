@@ -1,0 +1,53 @@
+name: Deploy Scalping Strategy Dashboard
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Every 5 minutes during market hours
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Fetch and generate HTML
+      run: npm run build
+      env:
+        NODE_OPTIONS: '--no-warnings'
+    
+    - name: Verify index.html exists
+      run: |
+        if [ ! -f index.html ]; then
+          echo "ERROR: index.html not generated!"
+          exit 1
+        fi
+        echo "✅ index.html generated successfully"
+    
+    - name: Commit and push changes
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git add index.html
+        if ! git diff --cached --quiet; then
+          git commit -m "🔄 Update scalping opportunities - $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push origin main
+        else
+          echo "No changes"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
