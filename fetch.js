@@ -136,9 +136,23 @@ function analyzeScalpingOpportunity(market) {
   const updated = new Date(market.updatedAt || market.lastUpdate || Date.now());
   const hoursSinceUpdate = (Date.now() - updated) / 3600000;
   
+  // Build Polymarket URL using event slug + market slug
+  let marketUrl = `https://polymarket.com/market/${market.id}`;
+  if (market.slug) {
+    // Try to get event slug from events array
+    const eventSlug = market.events?.[0]?.slug || market.eventSlug;
+    if (eventSlug) {
+      marketUrl = `https://polymarket.com/event/${eventSlug}/${market.slug}`;
+    } else {
+      marketUrl = `https://polymarket.com/market/${market.slug}`;
+    }
+  }
+  
   return {
     id: market.id,
     question: market.question,
+    slug: market.slug,
+    eventSlug: market.events?.[0]?.slug,
     yes,
     no,
     sum: yes + no,
@@ -151,6 +165,7 @@ function analyzeScalpingOpportunity(market) {
     liquidity: market.liquidity || (market.liquidityNum ? { YES: market.liquidityNum, NO: market.liquidityNum } : { YES: 0, NO: 0 }),
     updatedAt: market.updatedAt || market.lastUpdate,
     hoursSinceUpdate,
+    marketUrl,
   };
 }
 

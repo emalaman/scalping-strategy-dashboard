@@ -238,7 +238,7 @@ function generateHTML(data) {
         
         <!-- Action Button -->
         <div class="border-t border-dark-700 pt-3">
-          <button onclick="window.open('https://polymarket.com/market/${opp.id}', '_blank')" class="w-full py-2 bg-gradient-to-r from-neon-blue/20 to-neon-pink/20 border border-neon-blue/50 rounded-lg hover:from-neon-blue/30 hover:to-neon-pink/30 transition text-white font-semibold text-sm">
+          <button onclick="window.open('${opp.marketUrl}', '_blank')" class="w-full py-2 bg-gradient-to-r from-neon-blue/20 to-neon-pink/20 border border-neon-blue/50 rounded-lg hover:from-neon-blue/30 hover:to-neon-pink/30 transition text-white font-semibold text-sm">
             🎯 ${opp.underpricedSide} at ${formatPercent(opp.underpricedPrice)} → Target +${targetProfit}%
           </button>
         </div>
