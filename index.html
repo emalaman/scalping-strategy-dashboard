@@ -157,9 +157,10 @@
             <div class="text-green-400 font-bold">${formatNumber(o.liquidity)}</div>
           </div>
         </div>
+        ${o.timeLeft && o.timeLeft > 0 ? `
         <div class="mb-4 text-center border-b border-gray-700 pb-2">
-          <span class="text-xs text-gray-400">⏱️ Ends: <span class="font-mono text-primary-400">${o.timeLeft ? timeLeft(o.timeLeft) : 'No end date'}</span></span>
-        </div>
+          <span class="text-xs text-gray-400">⏱️ Ends in: <span class="font-mono text-primary-400">${timeLeft(o.timeLeft)}</span></span>
+        </div>` : ''}
         <button onclick="window.open('${o.marketUrl}','_blank')" class="w-full py-2 bg-primary-900/30 border border-primary-600 rounded hover:bg-primary-800/40 text-white font-semibold">
           🎯 ${o.underpricedSide} at ${formatPercent(o.underpricedPrice)} → Target +${target}%
         </button>
