@@ -143,6 +143,21 @@ Modify regex patterns in `src/utils/categories.js`.
 
 Tailwind config in `tailwind.config.js`. Primary color, fonts, etc.
 
+## 📚 Estratégia de Scalping
+
+Documentação completa da lógica de filtragem, sinais de compra/venda e metodologia:
+
+**[ESTRATEGIA.md](./ESTRATEGIA.md)** - Leitura essencial para entender como as oportunidades são identificadas
+
+### Tópicos covers:
+- Critérios de filtragem (tempo, volume, spread)
+- Cálculo de sinais (BUY/SELL/STRONG)
+- Exemplos práticos
+- Arquitetura técnica
+- Riscos e limitações
+
+---
+
 ## Credits
 
 - Data from [Polymarket Gamma API](https://gamma-api.polymarket.com/)
