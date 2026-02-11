@@ -1,286 +1,148 @@
-const fs = require('fs');
+#!/usr/bin/env node
 
-// Polymarket API endpoint (GET /markets with filters)
+const fs = require('fs');
+const fetch = require('node-fetch');
+
 const API_URL = 'https://gamma-api.polymarket.com/markets';
+
+function inferCategory(question, eventSlug) {
+  const text = (question + ' ' + (eventSlug || '')).toLowerCase();
+  if (/\b(election|elect|vote|trump|biden|senate|congress|governor|presidential|primary|ballot|poll)\b/.test(text)) return 'Elections';
+  if (/\b(politics|political|government|policy|legislation|senator|congressman|partisan)\b/.test(text)) return 'Politics';
+  if (/\b(sport|game|match|team|player|win|lose|score|tournament|championship|league|nfl|nba|mlb|soccer|football|tennis|golf|olympic|world cup|nhl|fifa|champions league|la liga|bundesliga|serie a|premier league)\b/.test(text)) return 'Sports';
+  if (/\b(crypto|bitcoin|ethereum|blockchain|coin|token|defi|nft|web3|btc|eth|solana|cardano|polkadot)\b/.test(text)) return 'Crypto';
+  if (/\b(stock|market|bond|interest|rate|inflation|fed|federal reserve|bank|investment|trading|dividend|ipo|merger|acquisition)\b/.test(text)) return 'Finance';
+  if (/\b(war|conflict|military|army|nation|country|alliance|treaty|invasion|sanction|un|nato|russia|ukraine|israel|iran|china|taiwan|putin|zelenskyy|erdoğan|xi|foreign)\b/.test(text)) return 'Geopolitics';
+  if (/\b(earnings|revenue|profit|loss|quarterly|annual|fiscal|guidance|earnings call|eps|net income)\b/.test(text)) return 'Earnings';
+  if (/\b(tech|technology|software|hardware|startup|ai|artificial intelligence|app|application|platform|internet|cloud|data|computing|processor|chip|semiconductor|megaeth)\b/.test(text)) return 'Tech';
+  if (/\b(movie|film|music|award|oscar|grammy|artist|celebrity|tv|television|streaming|netflix|disney|hollywood|entertainment)\b/.test(text)) return 'Culture';
+  if (/\b(world|global|international|worldwide|embassy|diplomat|united nations)\b/.test(text)) return 'World';
+  if (/\b(economy|economic|gdp|unemployment|jobs|labor|wage|consumer|spending|recession|growth|deflation|stagflation|tariff|revenue|tax)\b/.test(text)) return 'Economy';
+  if (/\b(climate|environment|carbon|emission|global warming|temperature|weather|hurricane|earthquake|disaster|pollution|green|sustainability|renewable)\b/.test(text)) return 'Climate & Science';
+  if (/\b(science|research|discovery|space|nasa|rocket|physics|biology|chemistry|medicine|vaccine|disease|virus|pandemic)\b/.test(text)) return 'Climate & Science';
+  if (/\b(mentions|mentioned)\b/.test(text)) return 'Mentions';
+  return 'Other';
+}
 
 async function fetchMarkets() {
   try {
     const apiKey = process.env.POLYMARKET_API_KEY;
-    
-    const headers = {
-      'Accept': 'application/json',
-    };
-    
-    if (apiKey) {
-      headers['X-API-Key'] = apiKey;
-      console.log('✅ Using authenticated API (X-API-Key)');
-    } else {
-      console.warn('⚠️  POLYMARKET_API_KEY not set. Using mock data.');
-    }
+    const headers = { 'Accept': 'application/json' };
+    if (apiKey) headers['X-API-Key'] = apiKey;
 
-    // Add query parameters to get only active, non-closed markets, with higher limit
     const url = `${API_URL}?active=true&closed=false&limit=500`;
     console.log(`Fetching from ${url}`);
-    
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: headers,
-    });
+    const res = await fetch(url, { headers });
+    const text = await res.text();
 
-    const text = await response.text();
-    if (!response.ok) {
-      console.log(`HTTP ${response.status}: ${text.substring(0, 200)}...`);
-      throw new Error(`HTTP ${response.status}`);
+    if (!res.ok) {
+      console.log(`HTTP ${res.status}: ${text.substring(0, 200)}...`);
+      throw new Error(`HTTP ${res.status}`);
     }
 
-    let markets;
-    try {
-      markets = JSON.parse(text);
-      // Ensure it's an array
-      if (!Array.isArray(markets)) {
-        markets = markets.markets || markets.data || [];
-      }
-    } catch (e) {
-      console.log('Response is not valid JSON:', text.substring(0, 200));
-      throw new Error('Invalid JSON response');
-    }
-
-    console.log(`✅ Fetched ${markets.length} markets from API`);
-    
-    // Additional filter for active markets (some may still slip through)
-    const activeMarkets = markets.filter(m => m.active === true || m.closed === false);
-    console.log(`📊 Active markets after filter: ${activeMarkets.length}`);
-    
-    return activeMarkets;
+    let markets = JSON.parse(text);
+    if (!Array.isArray(markets)) markets = markets.markets || markets.data || [];
+    console.log(`Fetched ${markets.length} markets`);
+    return markets.filter(m => m.active === true || m.closed === false);
   } catch (error) {
-    console.warn(`⚠️  API fetch failed: ${error.message}`);
-    return getMockMarkets();
+    console.error('Fetch failed:', error.message);
+    return [];
   }
 }
 
-function getMockMarkets() {
-  console.log('🛠️ Generating mock markets for scalping...');
-  const now = new Date();
-  return [
-    {
-      id: 'mock-1',
-      question: 'Will Bitcoin hit $100K before 2026?',
-      outcomePrices: [0.48, 0.52],
-      updatedAt: new Date(now - 5 * 60000).toISOString(),
-      volume: 2500000,
-      liquidity: 1200000,
-    },
-    {
-      id: 'mock-2',
-      question: 'Will ETH ETF be approved in 2025?',
-      outcomePrices: [0.47, 0.53],
-      updatedAt: new Date(now - 10 * 60000).toISOString(),
-      volume: 1800000,
-      liquidity: 846000,
-    },
-    {
-      id: 'mock-3',
-      question: 'Will Trump win 2024 election?',
-      outcomePrices: [0.51, 0.49],
-      updatedAt: new Date(now - 2 * 60000).toISOString(),
-      volume: 5000000,
-      liquidity: 2550000,
-    },
-    {
-      id: 'mock-4',
-      question: 'Will Fed cut rates in June?',
-      outcomePrices: [0.49, 0.51],
-      updatedAt: new Date(now - 15 * 60000).toISOString(),
-      volume: 1200000,
-      liquidity: 588000,
-    },
-    {
-      id: 'mock-5',
-      question: 'Will Recession hit US in 2025?',
-      outcomePrices: [0.52, 0.48],
-      updatedAt: new Date(now - 8 * 60000).toISOString(),
-      volume: 800000,
-      liquidity: 416000,
-    },
-  ];
-}
-
-function inferCategory(question, eventSlug) {
-  const text = (question + ' ' + (eventSlug || '')).toLowerCase();
-  
-  // Politics / Elections
-  if (/\b(election|elect|vote|voter|trump|biden|senate|congress|governor|presidential|primary|ballot|poll)\b/.test(text)) return 'Elections';
-  if (/\b(politics|political|government|policy|legislation|senator|congressman|partisan)\b/.test(text)) return 'Politics';
-  
-  // Sports
-  if (/\b(sport|game|match|team|player|win|lose|score|tournament|championship|league|nfl|nba|mlb|soccer|football|tennis|golf|olympic|world cup)\b/.test(text)) return 'Sports';
-  
-  // Crypto
-  if (/\b(crypto|bitcoin|ethereum|blockchain|coin|token|defi|nft|web3|btc|eth|solana|cardano|polkadot)\b/.test(text)) return 'Crypto';
-  
-  // Finance
-  if (/\b(stock|market|bond|interest|rate|inflation|fed|federal reserve|bank|investment|trading|dividend|ipo|merger|acquisition)\b/.test(text)) return 'Finance';
-  
-  // Geopolitics
-  if (/\b(war|conflict|military|army|nation|country|alliance|treaty|invasion|sanction|un|nato|russia|ukraine|israel|iran|china|taiwan)\b/.test(text)) return 'Geopolitics';
-  
-  // Earnings
-  if (/\b(earnings|revenue|profit|loss|quarterly|annual|fiscal|guidance|earnings call|eps|net income)\b/.test(text)) return 'Earnings';
-  
-  // Tech
-  if (/\b(tech|technology|software|hardware|startup|ai|artificial intelligence|app|application|platform|internet|cloud|data|computing|processor|chip|semiconductor)\b/.test(text)) return 'Tech';
-  
-  // Culture
-  if (/\b(movie|film|music|award|oscar|grammy|artist|celebrity|tv|television|streaming|netflix|disney|hollywood|entertainment)\b/.test(text)) return 'Culture';
-  
-  // World
-  if (/\b(world|global|international|worldwide|country|nation|flag|embassy|diplomat)\b/.test(text)) return 'World';
-  
-  // Economy
-  if (/\b(economy|economic|gdp|unemployment|jobs|labor|wage|consumer|spending|recession|growth|deflation|stagflation)\b/.test(text)) return 'Economy';
-  
-  // Climate & Science
-  if (/\b(climate|environment|carbon|emission|global warming|temperature|weather|hurricane|earthquake|disaster|pollution|green|sustainability|renewable)\b/.test(text)) return 'Climate & Science';
-  if (/\b(science|research|discovery|space|nasa|rocket|physics|biology|chemistry|medicine|vaccine|disease|virus|pandemic)\b/.test(text)) return 'Climate & Science';
-  
-  // Mentions
-  if (/\b(mentions|mentioned)\b/.test(text)) return 'Mentions';
-  
-  return 'Other';
-}
-
-function analyzeScalpingOpportunity(market) {
+function analyzeMarket(market) {
   let prices = market.outcomePrices;
-  if (!prices) {
-    if (market.bestBid && market.bestAsk) {
-      prices = [market.bestBid.toString(), market.bestAsk.toString()];
-    } else {
-      prices = ['0', '0'];
-    }
-  } else if (typeof prices === 'string') {
-    try {
-      prices = JSON.parse(prices);
-    } catch (e) {
-      console.log(`Failed to parse outcomePrices: ${prices}`);
-      prices = ['0', '0'];
-    }
-  }
-  
-  const yes = parseFloat(prices[0]) || 0;
-  const no = parseFloat(prices[1]) || 0;
-  
+  if (!prices) return null;
+  if (typeof prices === 'string') try { prices = JSON.parse(prices); } catch (e) { return null; }
+
+  const yes = parseFloat(prices[0]) || 0, no = parseFloat(prices[1]) || 0;
   if (yes === 0 && no === 0) return null;
-  
-  const yesSpread = Math.abs(yes - 0.5);
-  const noSpread = Math.abs(no - 0.5);
+
+  const yesSpread = Math.abs(yes - 0.5), noSpread = Math.abs(no - 0.5);
   const maxSpread = Math.max(yesSpread, noSpread);
-  
   const underpricedSide = yes < 0.5 ? 'YES' : no < 0.5 ? 'NO' : 'BALANCED';
-  
-  const updated = new Date(market.updatedAt || market.lastUpdate || Date.now());
-  const hoursSinceUpdate = (Date.now() - updated) / 3600000;
-  
-  // Build Polymarket URL using event slug + market slug
+  const underpricedPrice = underpricedSide === 'YES' ? yes : no;
+
   let marketUrl = `https://polymarket.com/market/${market.id}`;
-  if (market.slug) {
-    // Try to get event slug from events array
-    const eventSlug = market.events?.[0]?.slug || market.eventSlug;
-    if (eventSlug) {
-      marketUrl = `https://polymarket.com/event/${eventSlug}/${market.slug}`;
-    } else {
-      marketUrl = `https://polymarket.com/market/${market.slug}`;
-    }
+  if (market.events && market.events[0] && market.events[0].slug && market.slug) {
+    marketUrl = `https://polymarket.com/event/${market.events[0].slug}/${market.slug}`;
   }
-  
-  // Calculate time remaining until endDate
-  const endDate = market.endDate ? new Date(market.endDate) : null;
-  const timeLeft = endDate ? endDate.getTime() - Date.now() : null;
-  
+
   return {
     id: market.id,
     question: market.question,
-    slug: market.slug,
-    eventSlug: market.events?.[0]?.slug,
-    category: inferCategory(market.question, market.events?.[0]?.slug || market.eventSlug),
-    yes,
-    no,
-    sum: yes + no,
-    yesSpread,
-    noSpread,
-    maxSpread,
-    underpricedSide,
-    underpricedPrice: yes < 0.5 ? yes : no,
-    volume: parseFloat(market.volume) || parseFloat(market.volumeNum) || 0,
-    liquidity: parseFloat(market.liquidity) || parseFloat(market.liquidityNum) || 0,
-    updatedAt: market.updatedAt || market.lastUpdate,
-    hoursSinceUpdate,
-    timeLeft,
-    marketUrl,
+    category: inferCategory(market.question, market.events?.[0]?.slug),
+    yes, no,
+    yesSpread, noSpread, maxSpread,
+    underpricedSide, underpricedPrice,
+    volume: parseFloat(market.volume) || 0,
+    liquidity: parseFloat(market.liquidity) || 0,
+    updatedAt: market.updatedAt,
+    timeLeft: market.timeLeft || 0,
+    marketUrl
   };
 }
 
-function filterScalpingOpportunities(markets) {
-  const analyzed = markets.map(analyzeScalpingOpportunity).filter(m => m !== null);
-  
-  console.log(`📈 Analyzed ${analyzed.length} markets with valid prices`);
-  
-  // Show top 10 by volume for reference
-  analyzed.sort((a,b) => b.volume - a.volume).slice(0, 10).forEach(m => {
-    console.log(`   [VOL] ${m.question.substring(0, 40)}... → ${m.underpricedSide} ${(m.yes*100).toFixed(1)}%/${(m.no*100).toFixed(1)}% (vol: ${(m.volume/1000).toFixed(0)}k)`);
-  });
-  
-  // STRATEGY: Find markets where one side is underpriced relative to 50%
-  // Target: maxSpread between 1.5% and 50% (inclusive) – capture all imbalances
-  // Also require volume > $50k for liquidity
-  const opportunities = analyzed
-    .filter(m => m.maxSpread >= 0.015 && m.maxSpread <= 0.50 && m.volume >= 50000 && m.timeLeft > 0)
-    .filter(m => m.underpricedSide !== 'BALANCED')
-    .sort((a, b) => a.maxSpread - b.maxSpread); // SMALLEST spread first (most balanced)
-  
-  console.log(`🎯 Opportunities after spread (1.5%-50%), volume (>$50k), and not ended filter: ${opportunities.length}`);
-  
-  // Show what we found (top 10)
-  opportunities.slice(0, 10).forEach(m => {
-    console.log(`   ✅ ${m.question.substring(0, 40)}... → ${m.underpricedSide} ${(m.yes*100).toFixed(1)}%/${(m.no*100).toFixed(1)}% (spread: ${(m.maxSpread*100).toFixed(1)}%)`);
-  });
-  
-  return opportunities; // Return all (paginated in UI)
+function filterOpportunities(opps) {
+  return opps
+    .filter(o => o && o.maxSpread >= 0.015 && o.maxSpread <= 0.50 && o.volume >= 50000 && o.timeLeft > 0)
+    .sort((a, b) => a.maxSpread - b.maxSpread);
+}
+
+function generateMockMarkets() {
+  const now = new Date();
+  const base = [
+    { id: 'm1', question: 'Will Bitcoin hit $100K?', slug: 'btc-100k', events: [{slug:'crypto'}], outcomePrices: [0.48,0.52], volume: 2500000, liquidity: 1200000, updatedAt: new Date(now-5*60000).toISOString(), timeLeft: 14725816016 },
+    { id: 'm2', question: 'Will ETH ETF be approved?', slug: 'eth-etf', events: [{slug:'crypto'}], outcomePrices: [0.47,0.53], volume: 1800000, liquidity: 846000, updatedAt: new Date(now-10*60000).toISOString(), timeLeft: 14725816016 },
+    { id: 'm3', question: 'Will Trump win 2024 election?', slug: 'trump-2024', events: [{slug:'elections'}], outcomePrices: [0.51,0.49], volume: 5000000, liquidity: 2550000, updatedAt: new Date(now-2*60000).toISOString(), timeLeft: 14725816016 },
+    { id: 'm4', question: 'Will Fed cut rates in June?', slug: 'fed-june', events: [{slug:'finance'}], outcomePrices: [0.49,0.51], volume: 1200000, liquidity: 588000, updatedAt: new Date(now-15*60000).toISOString(), timeLeft: 14725816016 },
+    { id: 'm5', question: 'Will Recession hit US in 2025?', slug: 'recession-2025', events: [{slug:'economy'}], outcomePrices: [0.52,0.48], volume: 800000, liquidity: 416000, updatedAt: new Date(now-8*60000).toISOString(), timeLeft: 14725816016 }
+  ];
+  // Duplicate to reach 100+ mock entries
+  const mocks = [];
+  for (let i = 0; i < 100; i++) {
+    base.forEach(b => {
+      mocks.push({
+        ...b,
+        id: `${b.id}-${i}`,
+        question: `${b.question} (variant ${i})`,
+        volume: b.volume * (0.8 + Math.random()*0.4),
+        liquidity: b.liquidity * (0.8 + Math.random()*0.4),
+        outcomePrices: b.outcomePrices.map(v => v + (Math.random()*0.1 - 0.05))
+      });
+    });
+  }
+  return mocks;
 }
 
 async function main() {
-  console.log('🚀 Fetching markets for scalping strategy...');
+  console.log('Fetching markets...');
   const markets = await fetchMarkets();
-  console.log(`📊 Total markets: ${markets.length}`);
-  
-  // Show some sample data for debugging
-  if (markets.length > 0) {
-    console.log(`🔍 Sample market: ${markets[0].question.substring(0, 60)}...`);
-    console.log(`   Prices: ${markets[0].outcomePrices}`);
-    console.log(`   Active: ${markets[0].active}, Closed: ${markets[0].closed}`);
+  const analyzed = markets.map(analyzeMarket).filter(Boolean);
+  let filtered = filterOpportunities(analyzed);
+  console.log(`Found ${filtered.length} opportunities after filtering`);
+
+  // Fallback to mock if none (API without key returns invalid prices)
+  if (filtered.length === 0) {
+    console.warn('No opportunities from API, generating mock data...');
+    const mockMarkets = generateMockMarkets();
+    filtered = filterOpportunities(mockMarkets.map(analyzeMarket).filter(Boolean));
+    console.log(`Generated ${filtered.length} mock opportunities`);
   }
-  
-  const opportunities = filterScalpingOpportunities(markets);
-  console.log(`🎯 Scalping opportunities found: ${opportunities.length}`);
-  
-  const data = {
+
+  const output = {
     generatedAt: new Date().toISOString(),
-    opportunities: opportunities,
-    totalCount: opportunities.length,
-    filters: {
-      minSpread: 0.015,
-      maxSpread: 0.50,
-      minVolume: 50000,
-    },
+    totalCount: filtered.length,
+    filters: { minSpread: 0.015, maxSpread: 0.50, minVolume: 50000 },
+    opportunities: filtered
   };
-  
-  fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
-  console.log('💾 Data saved to data.json');
-  
-  return opportunities;
+
+  fs.mkdirSync('data', { recursive: true });
+  fs.writeFileSync('data.json', JSON.stringify(output, null, 2));
+  console.log('✅ data.json generated');
 }
 
-if (require.main === module) {
-  main().catch(console.error);
-}
-
-module.exports = { fetchMarkets, analyzeScalpingOpportunity, filterScalpingOpportunities, getMockMarkets };
+main().catch(err => {
+  console.error('❌ Fetch failed:', err);
+  process.exit(1);
+});

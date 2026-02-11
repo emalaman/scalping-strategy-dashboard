@@ -1,25 +1,4 @@
-# Dependencies
 node_modules/
-
-# IDE / OS
 .DS_Store
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Logs
-*.log
-npm-debug.log*
-
-# Env
 .env
-.env.local
-.env.*.local
-
-# Data generated at build (will be overwritten)
-src/data/opportunities.json
-
-# Misc
-.cache/
-
+*.log
