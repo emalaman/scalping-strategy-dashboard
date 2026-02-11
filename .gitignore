@@ -22,8 +22,9 @@ npm-debug.log*
 .env.local
 .env.*.local
 
-# Data generated at build (but we want src/data/opportunities.json tracked for deployment)
-!src/data/opportunities.json
+# Data generated at build
+src/data/opportunities.json
+scripts/data/
 
 # Misc
 .cache/
