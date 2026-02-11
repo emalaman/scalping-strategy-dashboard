@@ -213,7 +213,10 @@
         sel.innerHTML += `<option value="${cat}" ${cat===currentCategory?'selected':''}>${cat} (${count})</option>`;
       });
 
-      const signals = ['All', 'STRONG_BUY', 'BUY', 'SELL', 'STRONG_SELL', 'NEUTRAL'];
+      // Build signal list from actual data (only signals that exist)
+      const signalSet = new Set(opportunities.map(o => o.signal));
+      const signalOrder = ['STRONG_BUY', 'BUY', 'SELL', 'STRONG_SELL', 'NEUTRAL'];
+      const signals = ['All', ...signalOrder.filter(sig => signalSet.has(sig))];
       const sigSel = document.getElementById('signal-filter');
       signals.forEach(sig => {
         const count = sig==='All'? opportunities.length : opportunities.filter(o=>o.signal===sig).length;
