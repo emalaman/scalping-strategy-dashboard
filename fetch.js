@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-// Polymarket API endpoint (REST, not GraphQL)
+// Polymarket API endpoint (GET /markets with filters)
 const API_URL = 'https://gamma-api.polymarket.com/markets';
 
 async function fetchMarkets() {
@@ -18,8 +18,11 @@ async function fetchMarkets() {
       console.warn('⚠️  POLYMARKET_API_KEY not set. Using mock data.');
     }
 
-    console.log(`Fetching from ${API_URL}`);
-    const response = await fetch(API_URL, {
+    // Add query parameters to get only active, non-closed markets
+    const url = `${API_URL}?active=true&closed=false`;
+    console.log(`Fetching from ${url}`);
+    
+    const response = await fetch(url, {
       method: 'GET',
       headers: headers,
     });
@@ -42,11 +45,11 @@ async function fetchMarkets() {
       throw new Error('Invalid JSON response');
     }
 
-    console.log(`✅ Fetched ${markets.length} markets`);
+    console.log(`✅ Fetched ${markets.length} markets from API`);
     
-    // Filter only active (non-closed) markets
+    // Additional filter for active markets (some may still slip through)
     const activeMarkets = markets.filter(m => m.active === true || m.closed === false);
-    console.log(`📊 Active markets: ${activeMarkets.length}`);
+    console.log(`📊 Active markets after filter: ${activeMarkets.length}`);
     
     return activeMarkets;
   } catch (error) {
@@ -103,10 +106,22 @@ function getMockMarkets() {
 }
 
 function analyzeScalpingOpportunity(market) {
-  // Polymarket REST returns different field names
-  const prices = market.outcomePrices || market.outcomes?.map(o => o.price) || [0, 0];
+  // Polymarket REST returns outcomePrices as string array: ["0.48", "0.52"]
+  let prices = market.outcomePrices;
+  if (!prices || prices.length < 2) {
+    // Try alternative fields
+    if (market.bestBid && market.bestAsk) {
+      prices = [market.bestBid.toString(), market.bestAsk.toString()];
+    } else {
+      prices = ['0', '0'];
+    }
+  }
+  
   const yes = parseFloat(prices[0]) || 0;
   const no = parseFloat(prices[1]) || 0;
+  
+  // If prices are both 0, skip this market (inactive)
+  if (yes === 0 && no === 0) return null;
   
   const yesSpread = Math.abs(yes - 0.5);
   const noSpread = Math.abs(no - 0.5);
@@ -136,7 +151,9 @@ function analyzeScalpingOpportunity(market) {
 }
 
 function filterScalpingOpportunities(markets, minSpread = 0.015, maxSpread = 0.03, minVolume = 100000) {
-  const analyzed = markets.map(analyzeScalpingOpportunity);
+  const analyzed = markets.map(analyzeScalpingOpportunity).filter(m => m !== null);
+  
+  console.log(`📈 Analyzed ${analyzed.length} markets with valid prices`);
   
   const opportunities = analyzed
     .filter(m => m.maxSpread >= minSpread && m.maxSpread <= maxSpread && m.volume >= minVolume)
@@ -150,6 +167,13 @@ async function main() {
   console.log('🚀 Fetching markets for scalping strategy...');
   const markets = await fetchMarkets();
   console.log(`📊 Total markets: ${markets.length}`);
+  
+  // Show some sample data for debugging
+  if (markets.length > 0) {
+    console.log(`🔍 Sample market: ${markets[0].question.substring(0, 60)}...`);
+    console.log(`   Prices: ${markets[0].outcomePrices}`);
+    console.log(`   Active: ${markets[0].active}, Closed: ${markets[0].closed}`);
+  }
   
   const opportunities = filterScalpingOpportunities(markets);
   console.log(`🎯 Scalping opportunities found: ${opportunities.length}`);
