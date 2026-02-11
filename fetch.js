@@ -164,17 +164,17 @@ function filterScalpingOpportunities(markets) {
     console.log(`   [VOL] ${m.question.substring(0, 40)}... → ${m.underpricedSide} ${(m.yes*100).toFixed(1)}%/${(m.no*100).toFixed(1)}% (vol: ${(m.volume/1000).toFixed(0)}k)`);
   });
   
-  // STRATEGY: Find markets where both outcomes are near 50% (small spread)
-  // Target: maxSpread between 1.5% and 6% (inclusive)
+  // STRATEGY: Find markets where one side is underpriced relative to 50%
+  // Target: maxSpread between 1.5% and 50% (inclusive) – capture all imbalances
   // Also require volume > $50k for liquidity
   const opportunities = analyzed
-    .filter(m => m.maxSpread >= 0.015 && m.maxSpread <= 0.06 && m.volume >= 50000)
+    .filter(m => m.maxSpread >= 0.015 && m.maxSpread <= 0.50 && m.volume >= 50000)
     .filter(m => m.underpricedSide !== 'BALANCED')
-    .sort((a, b) => b.maxSpread - a.maxSpread);
+    .sort((a, b) => a.maxSpread - b.maxSpread); // SMALLEST spread first (most balanced)
   
-  console.log(`🎯 Opportunities after spread (1.5%-6%) & volume (>$50k) filter: ${opportunities.length}`);
+  console.log(`🎯 Opportunities after spread (1.5%-50%) & volume (>$50k) filter: ${opportunities.length}`);
   
-  // Show what we found
+  // Show what we found (top 10)
   opportunities.slice(0, 10).forEach(m => {
     console.log(`   ✅ ${m.question.substring(0, 40)}... → ${m.underpricedSide} ${(m.yes*100).toFixed(1)}%/${(m.no*100).toFixed(1)}% (spread: ${(m.maxSpread*100).toFixed(1)}%)`);
   });
@@ -202,9 +202,9 @@ async function main() {
     opportunities: opportunities,
     totalCount: opportunities.length,
     filters: {
-      minSpread: 0.005,
+      minSpread: 0.015,
       maxSpread: 0.50,
-      minVolume: 10000,
+      minVolume: 50000,
     },
   };
   

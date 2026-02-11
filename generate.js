@@ -124,7 +124,7 @@ function generateHTML(data) {
         ⚡ Scalping Strategy Dashboard
       </h1>
       <p class="text-gray-400 text-lg">
-        Top ${totalCount} opportunities · Spread ${filters.minSpread*100}%-${filters.maxSpread*100}% · Vol > ${formatNumber(filters.minVolume)}
+        Top ${totalCount} opportunities · Spread 1.5%-20% · Vol > $50k
         <br>
         Last updated: <span class="text-neon-blue font-mono">${lastUpdate}</span>
       </p>
