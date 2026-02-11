@@ -4,6 +4,10 @@ const fs = require('fs');
 const fetch = require('node-fetch');
 
 const API_URL = 'https://gamma-api.polymarket.com/markets';
+const MIN_SPREAD = 0.015;
+const MAX_SPREAD = 0.50;
+const MIN_VOLUME = 50000;
+const MIN_TIME_LEFT_MS = 3 * 60 * 1000; // 3 minutes
 
 function inferCategory(question, eventSlug) {
   const text = (question + ' ' + (eventSlug || '')).toLowerCase();
@@ -24,26 +28,45 @@ function inferCategory(question, eventSlug) {
   return 'Other';
 }
 
+function getSignal(price) {
+  if (price < 0.48) return 'STRONG_BUY';
+  if (price < 0.49) return 'BUY';
+  if (price > 0.51) return 'STRONG_SELL';
+  if (price > 0.50) return 'SELL';
+  return 'NEUTRAL';
+}
+
 async function fetchMarkets() {
   try {
     const apiKey = process.env.POLYMARKET_API_KEY;
     const headers = { 'Accept': 'application/json' };
     if (apiKey) headers['X-API-Key'] = apiKey;
 
-    const url = `${API_URL}?active=true&closed=false&limit=500`;
-    console.log(`Fetching from ${url}`);
-    const res = await fetch(url, { headers });
-    const text = await res.text();
+    const allMarkets = [];
 
-    if (!res.ok) {
-      console.log(`HTTP ${res.status}: ${text.substring(0, 200)}...`);
-      throw new Error(`HTTP ${res.status}`);
+    // Fetch up to 1000 markets (2 pages of 500)
+    for (let offset = 0; offset < 1000; offset += 500) {
+      const url = `${API_URL}?active=true&closed=false&limit=500&offset=${offset}`;
+      console.log(`Fetching from ${url}`);
+      const res = await fetch(url, { headers });
+      const text = await res.text();
+
+      if (!res.ok) {
+        console.log(`HTTP ${res.status}: ${text.substring(0, 200)}...`);
+        throw new Error(`HTTP ${res.status}`);
+      }
+
+      let markets = JSON.parse(text);
+      if (!Array.isArray(markets)) markets = markets.markets || markets.data || [];
+      console.log(`Fetched ${markets.length} markets (offset ${offset})`);
+      allMarkets.push(...markets);
+
+      if (markets.length < 500) break; // last page
     }
 
-    let markets = JSON.parse(text);
-    if (!Array.isArray(markets)) markets = markets.markets || markets.data || [];
-    console.log(`Fetched ${markets.length} markets`);
-    return markets.filter(m => m.active === true || m.closed === false);
+    const unique = Array.from(new Map(allMarkets.map(m => [m.id, m])).values());
+    console.log(`Total unique markets: ${unique.length}`);
+    return unique.filter(m => m.active === true || m.closed === false);
   } catch (error) {
     console.error('Fetch failed:', error.message);
     return [];
@@ -75,6 +98,7 @@ function analyzeMarket(market) {
     yes, no,
     yesSpread, noSpread, maxSpread,
     underpricedSide, underpricedPrice,
+    signal: getSignal(underpricedPrice),
     volume: parseFloat(market.volume) || 0,
     liquidity: parseFloat(market.liquidity) || 0,
     updatedAt: market.updatedAt,
@@ -85,7 +109,7 @@ function analyzeMarket(market) {
 
 function filterOpportunities(opps) {
   return opps
-    .filter(o => o && o.maxSpread >= 0.015 && o.maxSpread <= 0.50 && o.volume >= 50000 && o.timeLeft > 0)
+    .filter(o => o && o.maxSpread >= MIN_SPREAD && o.maxSpread <= MAX_SPREAD && o.volume >= MIN_VOLUME && o.timeLeft > MIN_TIME_LEFT_MS)
     .sort((a, b) => a.maxSpread - b.maxSpread);
 }
 
@@ -98,7 +122,6 @@ function generateMockMarkets() {
     { id: 'm4', question: 'Will Fed cut rates in June?', slug: 'fed-june', events: [{slug:'finance'}], outcomePrices: [0.49,0.51], volume: 1200000, liquidity: 588000, updatedAt: new Date(now-15*60000).toISOString(), timeLeft: 14725816016 },
     { id: 'm5', question: 'Will Recession hit US in 2025?', slug: 'recession-2025', events: [{slug:'economy'}], outcomePrices: [0.52,0.48], volume: 800000, liquidity: 416000, updatedAt: new Date(now-8*60000).toISOString(), timeLeft: 14725816016 }
   ];
-  // Duplicate to reach 100+ mock entries
   const mocks = [];
   for (let i = 0; i < 100; i++) {
     base.forEach(b => {
@@ -120,9 +143,9 @@ async function main() {
   const markets = await fetchMarkets();
   const analyzed = markets.map(analyzeMarket).filter(Boolean);
   let filtered = filterOpportunities(analyzed);
-  console.log(`Found ${filtered.length} opportunities after filtering`);
+  console.log(`Found ${filtered.length} opportunities after filtering (timeLeft > 3min)`);
 
-  // Fallback to mock if none (API without key returns invalid prices)
+  // Fallback to mock if none
   if (filtered.length === 0) {
     console.warn('No opportunities from API, generating mock data...');
     const mockMarkets = generateMockMarkets();
@@ -133,7 +156,7 @@ async function main() {
   const output = {
     generatedAt: new Date().toISOString(),
     totalCount: filtered.length,
-    filters: { minSpread: 0.015, maxSpread: 0.50, minVolume: 50000 },
+    filters: { minSpread: MIN_SPREAD, maxSpread: MAX_SPREAD, minVolume: MIN_VOLUME, minTimeLeftMs: MIN_TIME_LEFT_MS },
     opportunities: filtered
   };
 
