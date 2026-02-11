@@ -1,11 +1,6 @@
 # Dependencies
 node_modules/
 
-# Build outputs
-dist/
-build/
-out/
-
 # IDE / OS
 .DS_Store
 .idea/
@@ -22,9 +17,9 @@ npm-debug.log*
 .env.local
 .env.*.local
 
-# Data generated at build
+# Data generated at build (will be overwritten)
 src/data/opportunities.json
-scripts/data/
 
 # Misc
 .cache/
+
