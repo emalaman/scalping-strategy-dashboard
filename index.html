@@ -104,11 +104,6 @@
         <label class="text-gray-300">Signal:</label>
         <select id="signal-filter" onchange="applyFilters()" class="px-4 py-2 bg-dark-800 border border-gray-700 rounded text-white">
           <option value="All">All Signals</option>
-          <option value="STRONG_BUY">🔥 STRONG BUY</option>
-          <option value="BUY">💙 BUY</option>
-          <option value="SELL">🧡 SELL</option>
-          <option value="STRONG_SELL">🔥 STRONG SELL</option>
-          <option value="NEUTRAL">⚖️ NEUTRAL</option>
         </select>
       </div>
     </div>
@@ -153,11 +148,11 @@
       const spreadColor = getSpreadColor(o.maxSpread);
       const target = (o.maxSpread*100).toFixed(1);
       const signalMap = {
-        'STRONG_BUY': { label: 'STRONG BUY', classes: 'bg-green-900/30 text-green-400 border-green-600' },
-        'BUY': { label: 'BUY', classes: 'bg-blue-900/30 text-blue-400 border-blue-600' },
-        'STRONG_SELL': { label: 'STRONG SELL', classes: 'bg-red-900/30 text-red-400 border-red-600' },
-        'SELL': { label: 'SELL', classes: 'bg-orange-900/30 text-orange-400 border-orange-600' },
-        'NEUTRAL': { label: 'NEUTRAL', classes: 'bg-gray-800 text-gray-400 border-gray-600' }
+        'STRONG_BUY': { label: '🟢 STRONG BUY', classes: 'bg-green-900/40 text-green-400 border-green-500' },
+        'BUY': { label: '🔵 BUY', classes: 'bg-blue-900/40 text-blue-400 border-blue-500' },
+        'STRONG_SELL': { label: '🔴 STRONG SELL', classes: 'bg-red-900/40 text-red-400 border-red-500' },
+        'SELL': { label: '🟠 SELL', classes: 'bg-orange-900/40 text-orange-400 border-orange-500' },
+        'NEUTRAL': { label: '⚪ NEUTRAL', classes: 'bg-gray-800 text-gray-400 border-gray-600' }
       };
       const sig = signalMap[o.signal] || signalMap['NEUTRAL'];
       return `

@@ -27,11 +27,18 @@ function inferCategory(question, eventSlug) {
   return 'Other';
 }
 
-function getSignal(price) {
-  if (price < 0.48) return 'STRONG_BUY';
-  if (price < 0.49) return 'BUY';
-  if (price > 0.51) return 'STRONG_SELL';
-  if (price > 0.50) return 'SELL';
+function getSignal(price, side) {
+  // price is the underpriced side price (always < 0.5)
+  // side is either 'YES' or 'NO' indicating which side is underpriced
+  if (side === 'YES') {
+    if (price < 0.48) return 'STRONG_BUY';
+    if (price < 0.49) return 'BUY';
+    return 'NEUTRAL';
+  } else if (side === 'NO') {
+    if (price < 0.48) return 'STRONG_SELL';
+    if (price < 0.49) return 'SELL';
+    return 'NEUTRAL';
+  }
   return 'NEUTRAL';
 }
 
@@ -81,6 +88,16 @@ function analyzeMarket(market) {
     marketUrl = `https://polymarket.com/event/${market.events[0].slug}/${market.slug}`;
   }
 
+  // Calculate timeLeft from endDateIso or endDate
+  let timeLeft = 0;
+  if (market.endDateIso) {
+    const endTime = new Date(market.endDateIso).getTime();
+    timeLeft = Math.max(0, endTime - Date.now());
+  } else if (market.endDate) {
+    const endTime = new Date(market.endDate).getTime();
+    timeLeft = Math.max(0, endTime - Date.now());
+  }
+
   return {
     id: market.id,
     question: market.question,
@@ -88,11 +105,11 @@ function analyzeMarket(market) {
     yes, no,
     yesSpread, noSpread, maxSpread,
     underpricedSide, underpricedPrice,
-    signal: getSignal(underpricedPrice),
+    signal: getSignal(underpricedPrice, underpricedSide),
     volume: parseFloat(market.volume) || 0,
     liquidity: parseFloat(market.liquidity) || 0,
     updatedAt: market.updatedAt,
-    timeLeft: market.timeLeft || 0,
+    timeLeft,
     marketUrl
   };
 }
