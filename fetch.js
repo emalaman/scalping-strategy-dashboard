@@ -68,7 +68,7 @@ function getMockMarkets() {
       outcomePrices: [0.48, 0.52],
       updatedAt: new Date(now - 5 * 60000).toISOString(),
       volume: 2500000,
-      liquidity: { YES: 1200000, NO: 1300000 },
+      liquidity: 1200000,
     },
     {
       id: 'mock-2',
@@ -76,7 +76,7 @@ function getMockMarkets() {
       outcomePrices: [0.47, 0.53],
       updatedAt: new Date(now - 10 * 60000).toISOString(),
       volume: 1800000,
-      liquidity: { YES: 846000, NO: 954000 },
+      liquidity: 846000,
     },
     {
       id: 'mock-3',
@@ -84,7 +84,7 @@ function getMockMarkets() {
       outcomePrices: [0.51, 0.49],
       updatedAt: new Date(now - 2 * 60000).toISOString(),
       volume: 5000000,
-      liquidity: { YES: 2550000, NO: 2450000 },
+      liquidity: 2550000,
     },
     {
       id: 'mock-4',
@@ -92,7 +92,7 @@ function getMockMarkets() {
       outcomePrices: [0.49, 0.51],
       updatedAt: new Date(now - 15 * 60000).toISOString(),
       volume: 1200000,
-      liquidity: { YES: 588000, NO: 612000 },
+      liquidity: 588000,
     },
     {
       id: 'mock-5',
@@ -100,7 +100,7 @@ function getMockMarkets() {
       outcomePrices: [0.52, 0.48],
       updatedAt: new Date(now - 8 * 60000).toISOString(),
       volume: 800000,
-      liquidity: { YES: 416000, NO: 384000 },
+      liquidity: 416000,
     },
   ];
 }
@@ -148,6 +148,10 @@ function analyzeScalpingOpportunity(market) {
     }
   }
   
+  // Calculate time remaining until endDate
+  const endDate = market.endDate ? new Date(market.endDate) : null;
+  const timeLeft = endDate ? endDate.getTime() - Date.now() : null;
+  
   return {
     id: market.id,
     question: market.question,
@@ -162,9 +166,10 @@ function analyzeScalpingOpportunity(market) {
     underpricedSide,
     underpricedPrice: yes < 0.5 ? yes : no,
     volume: parseFloat(market.volume) || parseFloat(market.volumeNum) || 0,
-    liquidity: market.liquidity || (market.liquidityNum ? { YES: market.liquidityNum, NO: market.liquidityNum } : { YES: 0, NO: 0 }),
+    liquidity: parseFloat(market.liquidity) || parseFloat(market.liquidityNum) || 0,
     updatedAt: market.updatedAt || market.lastUpdate,
     hoursSinceUpdate,
+    timeLeft,
     marketUrl,
   };
 }

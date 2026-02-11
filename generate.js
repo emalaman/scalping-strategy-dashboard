@@ -42,6 +42,14 @@ function getSignal(side, price) {
   return { text: 'NEUTRAL', color: 'bg-gray-500/20 text-gray-400 border-gray-500/30' };
 }
 
+function formatTimeLeft(ms) {
+  if (!ms || ms <= 0) return 'Ended';
+  const days = Math.floor(ms / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  if (days > 0) return `${days}d ${hours}h`;
+  return `${hours}h`;
+}
+
 function generateHTML(data) {
   const { generatedAt, opportunities, totalCount, filters } = data;
   const lastUpdate = new Date(generatedAt).toLocaleString('en-US', {
@@ -232,9 +240,16 @@ function generateHTML(data) {
           </div>
           <div class="bg-dark-900 p-2 rounded text-center">
             <div class="text-gray-500">Liquidity</div>
-            <div class="font-bold text-neon-yellow">${formatNumber(opp.liquidity.YES + opp.liquidity.NO)}</div>
+            <div class="font-bold text-neon-yellow">${typeof opp.liquidity === 'number' ? formatNumber(opp.liquidity) : 'N/A'}</div>
           </div>
         </div>
+        
+        <!-- Time Remaining -->
+        ${opp.timeLeft ? `
+        <div class="mb-4 text-center">
+          <span class="text-xs text-gray-400">⏱️ Ends in: <span class="font-mono text-neon-blue">${formatTimeLeft(opp.timeLeft)}</span></span>
+        </div>
+        ` : ''}
         
         <!-- Action Button -->
         <div class="border-t border-dark-700 pt-3">
