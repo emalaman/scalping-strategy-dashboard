@@ -105,6 +105,50 @@ function getMockMarkets() {
   ];
 }
 
+function inferCategory(question, eventSlug) {
+  const text = (question + ' ' + (eventSlug || '')).toLowerCase();
+  
+  // Politics / Elections
+  if (/\b(election|elect|vote|voter|trump|biden|senate|congress|governor|presidential|primary|ballot|poll)\b/.test(text)) return 'Elections';
+  if (/\b(politics|political|government|policy|legislation|senator|congressman|partisan)\b/.test(text)) return 'Politics';
+  
+  // Sports
+  if (/\b(sport|game|match|team|player|win|lose|score|tournament|championship|league|nfl|nba|mlb|soccer|football|tennis|golf|olympic|world cup)\b/.test(text)) return 'Sports';
+  
+  // Crypto
+  if (/\b(crypto|bitcoin|ethereum|blockchain|coin|token|defi|nft|web3|btc|eth|solana|cardano|polkadot)\b/.test(text)) return 'Crypto';
+  
+  // Finance
+  if (/\b(stock|market|bond|interest|rate|inflation|fed|federal reserve|bank|investment|trading|dividend|ipo|merger|acquisition)\b/.test(text)) return 'Finance';
+  
+  // Geopolitics
+  if (/\b(war|conflict|military|army|nation|country|alliance|treaty|invasion|sanction|un|nato|russia|ukraine|israel|iran|china|taiwan)\b/.test(text)) return 'Geopolitics';
+  
+  // Earnings
+  if (/\b(earnings|revenue|profit|loss|quarterly|annual|fiscal|guidance|earnings call|eps|net income)\b/.test(text)) return 'Earnings';
+  
+  // Tech
+  if (/\b(tech|technology|software|hardware|startup|ai|artificial intelligence|app|application|platform|internet|cloud|data|computing|processor|chip|semiconductor)\b/.test(text)) return 'Tech';
+  
+  // Culture
+  if (/\b(movie|film|music|award|oscar|grammy|artist|celebrity|tv|television|streaming|netflix|disney|hollywood|entertainment)\b/.test(text)) return 'Culture';
+  
+  // World
+  if (/\b(world|global|international|worldwide|country|nation|flag|embassy|diplomat)\b/.test(text)) return 'World';
+  
+  // Economy
+  if (/\b(economy|economic|gdp|unemployment|jobs|labor|wage|consumer|spending|recession|growth|deflation|stagflation)\b/.test(text)) return 'Economy';
+  
+  // Climate & Science
+  if (/\b(climate|environment|carbon|emission|global warming|temperature|weather|hurricane|earthquake|disaster|pollution|green|sustainability|renewable)\b/.test(text)) return 'Climate & Science';
+  if (/\b(science|research|discovery|space|nasa|rocket|physics|biology|chemistry|medicine|vaccine|disease|virus|pandemic)\b/.test(text)) return 'Climate & Science';
+  
+  // Mentions
+  if (/\b(mentions|mentioned)\b/.test(text)) return 'Mentions';
+  
+  return 'Other';
+}
+
 function analyzeScalpingOpportunity(market) {
   let prices = market.outcomePrices;
   if (!prices) {
@@ -157,6 +201,7 @@ function analyzeScalpingOpportunity(market) {
     question: market.question,
     slug: market.slug,
     eventSlug: market.events?.[0]?.slug,
+    category: inferCategory(market.question, market.events?.[0]?.slug || market.eventSlug),
     yes,
     no,
     sum: yes + no,
