@@ -9,7 +9,7 @@ query ActiveMarkets {
     first: 100
     where: { closed: false }
     orderBy: updatedAt
-   orderDirection: desc
+    orderDirection: desc
   ) {
     id
     question
@@ -26,10 +26,24 @@ query ActiveMarkets {
 
 async function fetchMarkets() {
   try {
+    // Get API key from environment (GitHub Actions secret)
+    const apiKey = process.env.POLYMARKET_API_KEY;
+    
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    
+    if (apiKey) {
+      headers['Authorization'] = `Bearer ${apiKey}`;
+      console.log('✅ Using authenticated API (Bearer token)');
+    } else {
+      console.warn('⚠️  POLYMARKET_API_KEY not set. Use mock data or add secret in GitHub Actions.');
+    }
+
     console.log(`Fetching from ${API_URL}`);
     const response = await fetch(API_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: headers,
       body: JSON.stringify({ query: QUERY }),
     });
 
