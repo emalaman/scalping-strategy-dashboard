@@ -296,7 +296,7 @@ function generateHTML(data) {
 
     function getFilteredCards() {
       if (currentCategory === 'All') return allCards;
-      return allCards.filter(card => card.dataset && card.dataset.category === currentCategory.replace(/\\s+/g, '-'));
+      return allCards.filter(item => item.category === currentCategory);
     }
 
     function renderPage(page) {
