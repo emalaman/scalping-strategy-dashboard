@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 const API_URL = 'https://gamma-api.polymarket.com/markets';
 const MIN_SPREAD = 0.015;
 const MAX_SPREAD = 0.50;
-const MIN_VOLUME = 50000;
+const MIN_VOLUME = 20000;
 
 function inferCategory(question, eventSlug) {
   const text = (question + ' ' + (eventSlug || '')).toLowerCase();
