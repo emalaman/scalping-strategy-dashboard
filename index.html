@@ -220,7 +220,7 @@
       const sigSel = document.getElementById('signal-filter');
       signals.forEach(sig => {
         const count = sig==='All'? opportunities.length : opportunities.filter(o=>o.signal===sig).length;
-        const label = sig==='All'?'All Signals':sig.replace('_',' ');
+        const label = sig==='All'?'All Signals':sig.replace(/_/g, ' ');
         sigSel.innerHTML += `<option value="${sig}" ${sig===currentSignal?'selected':''}>${label} (${count})</option>`;
       });
 
