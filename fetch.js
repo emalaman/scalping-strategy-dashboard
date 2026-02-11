@@ -18,8 +18,8 @@ async function fetchMarkets() {
       console.warn('⚠️  POLYMARKET_API_KEY not set. Using mock data.');
     }
 
-    // Add query parameters to get only active, non-closed markets
-    const url = `${API_URL}?active=true&closed=false`;
+    // Add query parameters to get only active, non-closed markets, with higher limit
+    const url = `${API_URL}?active=true&closed=false&limit=500`;
     console.log(`Fetching from ${url}`);
     
     const response = await fetch(url, {
@@ -233,18 +233,18 @@ function filterScalpingOpportunities(markets) {
   // Target: maxSpread between 1.5% and 50% (inclusive) – capture all imbalances
   // Also require volume > $50k for liquidity
   const opportunities = analyzed
-    .filter(m => m.maxSpread >= 0.015 && m.maxSpread <= 0.50 && m.volume >= 50000)
+    .filter(m => m.maxSpread >= 0.015 && m.maxSpread <= 0.50 && m.volume >= 50000 && m.timeLeft > 0)
     .filter(m => m.underpricedSide !== 'BALANCED')
     .sort((a, b) => a.maxSpread - b.maxSpread); // SMALLEST spread first (most balanced)
   
-  console.log(`🎯 Opportunities after spread (1.5%-50%) & volume (>$50k) filter: ${opportunities.length}`);
+  console.log(`🎯 Opportunities after spread (1.5%-50%), volume (>$50k), and not ended filter: ${opportunities.length}`);
   
   // Show what we found (top 10)
   opportunities.slice(0, 10).forEach(m => {
     console.log(`   ✅ ${m.question.substring(0, 40)}... → ${m.underpricedSide} ${(m.yes*100).toFixed(1)}%/${(m.no*100).toFixed(1)}% (spread: ${(m.maxSpread*100).toFixed(1)}%)`);
   });
   
-  return opportunities.slice(0, 15);
+  return opportunities; // Return all (paginated in UI)
 }
 
 async function main() {

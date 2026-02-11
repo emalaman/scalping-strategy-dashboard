@@ -58,7 +58,10 @@ function generateHTML(data) {
     second: '2-digit',
   });
 
-  // Group opportunities by category
+  // Pagination state (client-side)
+  const PAGE_SIZE = 50;
+
+  // Group opportunities by category for filter counts
   const groupedByCategory = {};
   opportunities.forEach(opp => {
     const cat = opp.category || 'Other';
@@ -71,8 +74,9 @@ function generateHTML(data) {
 
   // Generate category filter dropdown
   const categoryFilter = `
-    <div class="flex justify-center mb-8">
-      <select id="categoryFilter" onchange="filterByCategory(this.value)" class="px-4 py-2 bg-dark-800 border border-gray-700 rounded text-white font-medium focus:outline-none focus:border-primary-500">
+    <div class="flex justify-center mb-8 flex-wrap gap-4 items-center">
+      <label for="categoryFilter" class="text-gray-300 font-medium">Filter by Category:</label>
+      <select id="categoryFilter" onchange="applyFilters()" class="px-4 py-2 bg-dark-800 border border-gray-700 rounded text-white font-medium focus:outline-none focus:border-primary-500">
         <option value="All">All Categories (${totalCount})</option>
         ${categories.map(cat => `<option value="${cat}">${cat} (${groupedByCategory[cat].length})</option>`).join('')}
       </select>
@@ -122,11 +126,11 @@ function generateHTML(data) {
             <div class="font-bold ${spreadColor}">${(opp.maxSpread*100).toFixed(1)}%</div>
           </div>
           <div class="bg-dark-900 p-2 rounded text-center border border-gray-700">
-            <div class="text-gray-500">Volume</div>
+            <div class="text-gray-400">Volume</div>
             <div class="font-bold text-white">${formatNumber(opp.volume)}</div>
           </div>
           <div class="bg-dark-900 p-2 rounded text-center border border-gray-700">
-            <div class="text-gray-500">Liquidity</div>
+            <div class="text-gray-400">Liquidity</div>
             <div class="font-bold text-green-400">${formatNumber(opp.liquidity)}</div>
           </div>
         </div>
@@ -147,6 +151,9 @@ function generateHTML(data) {
       </article>
     `;
   };
+
+  // Create flat array of all cards (already sorted by spread)
+  const allCards = opportunities.map(generateCard);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -216,6 +223,15 @@ function generateHTML(data) {
       border-width: 1px;
       border-style: solid;
     }
+    .pagination-btn {
+      @apply px-3 py-1 border border-gray-600 bg-dark-800 text-white rounded hover:bg-dark-700 transition;
+    }
+    .pagination-btn.active {
+      @apply bg-primary-800 border-primary-500 text-white;
+    }
+    .pagination-btn:disabled {
+      @apply opacity-50 cursor-not-allowed;
+    }
   </style>
 </head>
 <body class="min-h-screen bg-dark-900">
@@ -240,41 +256,10 @@ function generateHTML(data) {
     <!-- Category Filter -->
     ${categoryFilter}
 
-    <!-- Strategy Explanation -->
-    <div class="bg-dark-800 rounded-lg p-6 border border-gray-700 mb-10">
-      <h2 class="text-xl font-bold text-white mb-4 border-l-4 border-primary-600 pl-3">Strategy: Scalping 1.5-50% Spreads</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-        <div>
-          <h3 class="font-bold text-primary-400 mb-2">Entry Criteria</h3>
-          <ul class="text-gray-300 space-y-1">
-            <li>• Volume > ${formatNumber(filters.minVolume)}</li>
-            <li>• Spread 1.5% - 50%</li>
-            <li>• Active markets only</li>
-            <li>• High volatility preferred</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-bold text-primary-400 mb-2">Execution</h3>
-          <ul class="text-gray-300 space-y-1">
-            <li>• Buy underpriced side (<50%)</li>
-            <li>• Hold 5-30 minutes</li>
-            <li>• Take profit at 1-2%</li>
-            <li>• Stop loss at 1%</li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="font-bold text-primary-400 mb-2">Risk Management</h3>
-          <ul class="text-gray-300 space-y-1">
-            <li>• 2-5% capital per trade</li>
-            <li>• Max 3-5 simultaneous</li>
-            <li>• Total exposure 20-30%</li>
-            <li>• Monitor fees & slippage</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <!-- Pagination Controls (top) -->
+    <div id="pagination-top" class="flex justify-center items-center gap-2 mb-8"></div>
 
-    <!-- Opportunities by Category -->
+    <!-- Opportunities Grid (flat, paginated) -->
     ${totalCount === 0 ? `
     <div class="text-center py-20">
       <div class="text-6xl mb-4">📊</div>
@@ -282,19 +267,13 @@ function generateHTML(data) {
       <p class="text-gray-500">Spreads are too tight or markets are balanced. Check back later when volatility increases.</p>
     </div>
     ` : `
-    ${categories.map(cat => {
-      const opps = groupedByCategory[cat];
-      const catId = cat.replace(/\s+/g, '-');
-      return `
-      <section id="cat-${catId}" class="category-section mb-12">
-        <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">${cat} (${opps.length})</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          ${opps.map(generateCard).join('')}
-        </div>
-      </section>
-      `;
-    }).join('')}
+    <div id="opportunities-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Cards injected by JS -->
+    </div>
     `}
+    
+    <!-- Pagination Controls (bottom) -->
+    <div id="pagination-bottom" class="flex justify-center items-center gap-2 mt-8"></div>
     
     <!-- Footer -->
     <footer class="text-center py-8 text-gray-500 text-sm mt-12 border-t border-gray-800">
@@ -307,15 +286,78 @@ function generateHTML(data) {
     </footer>
 
   <script>
-    function filterByCategory(cat) {
-      document.querySelectorAll('.category-section').forEach(sec => {
-        if (cat === 'All' || sec.id === 'cat-' + cat.replace(/\\s+/g, '-')) {
-          sec.style.display = 'block';
-        } else {
-          sec.style.display = 'none';
-        }
-      });
+    const allCards = ${JSON.stringify(allCards)};
+    const PAGE_SIZE = ${PAGE_SIZE};
+    const totalCount = ${totalCount};
+    const totalPages = Math.ceil(totalCount / PAGE_SIZE);
+
+    let currentPage = 1;
+    let currentCategory = 'All';
+
+    function getFilteredCards() {
+      if (currentCategory === 'All') return allCards;
+      return allCards.filter(card => card.dataset && card.dataset.category === currentCategory.replace(/\\s+/g, '-'));
     }
+
+    function renderPage(page) {
+      const grid = document.getElementById('opportunities-grid');
+      const filtered = getFilteredCards();
+      const start = (page - 1) * PAGE_SIZE;
+      const end = start + PAGE_SIZE;
+      const pageCards = filtered.slice(start, end);
+      
+      grid.innerHTML = pageCards.join('');
+      
+      // Update pagination controls
+      updatePaginationControls();
+    }
+
+    function updatePaginationControls() {
+      const top = document.getElementById('pagination-top');
+      const bottom = document.getElementById('pagination-bottom');
+      const filteredCount = currentCategory === 'All' ? totalCount : parseInt(document.querySelector('#categoryFilter option[value="' + currentCategory + '"]').text.split('(')[1].replace(')', ''));
+      const pages = Math.ceil(filteredCount / PAGE_SIZE);
+      
+      let buttons = '';
+      
+      // Prev
+      buttons += \`<button class="pagination-btn" onclick="changePage(\${currentPage - 1})" \${currentPage === 1 ? 'disabled' : ''}>← Prev</button>\`;
+      
+      // Page numbers (show around current)
+      for (let i = 1; i <= pages; i++) {
+        if (i === 1 || i === pages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+          buttons += \`<button class="pagination-btn \${i === currentPage ? 'active' : ''}" onclick="changePage(\${i})">\${i}</button>\`;
+        } else if (i === currentPage - 3 || i === currentPage + 3) {
+          buttons += \`<span class="text-gray-500">...</span>\`;
+        }
+      }
+      
+      // Next
+      buttons += \`<button class="pagination-btn" onclick="changePage(\${currentPage + 1})" \${currentPage === pages ? 'disabled' : ''}>Next →</button>\`;
+      
+      top.innerHTML = buttons;
+      bottom.innerHTML = buttons;
+    }
+
+    function changePage(page) {
+      const filteredCount = currentCategory === 'All' ? totalCount : parseInt(document.querySelector('#categoryFilter option[value="' + currentCategory + '"]').text.split('(')[1].replace(')', ''));
+      const pages = Math.ceil(filteredCount / PAGE_SIZE);
+      if (page < 1 || page > pages) return;
+      currentPage = page;
+      renderPage(page);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function applyFilters() {
+      const catSelect = document.getElementById('categoryFilter');
+      currentCategory = catSelect.value;
+      currentPage = 1;
+      renderPage(1);
+    }
+
+    // Initial render
+    renderPage(1);
+
     // Auto-refresh
     setTimeout(() => location.reload(), 5 * 60 * 1000);
   </script>
