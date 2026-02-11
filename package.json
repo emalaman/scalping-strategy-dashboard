@@ -1,18 +1,30 @@
 {
   "name": "scalping-strategy-dashboard",
-  "version": "1.0.0",
-  "description": "Scalping strategy dashboard for prediction markets",
-  "main": "fetch.js",
+  "version": "2.0.0",
+  "description": "Polymarket arbitrage dashboard built with React + Vite",
+  "type": "module",
   "scripts": {
-    "fetch": "node fetch.js",
-    "generate": "node generate.js",
-    "build": "npm run fetch && npm run generate",
-    "start": "npx serve ."
+    "dev": "vite",
+    "build": "node scripts/build.js && vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
-  "keywords": [],
-  "author": "EmilIA",
-  "license": "MIT",
   "dependencies": {
-    "node-fetch": "^3.3.2"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.34.11",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "vite": "^5.4.10"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
