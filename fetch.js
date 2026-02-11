@@ -106,13 +106,18 @@ function getMockMarkets() {
 }
 
 function analyzeScalpingOpportunity(market) {
-  // Polymarket REST returns outcomePrices as string array: ["0.48", "0.52"]
   let prices = market.outcomePrices;
-  if (!prices || prices.length < 2) {
-    // Try alternative fields
+  if (!prices) {
     if (market.bestBid && market.bestAsk) {
       prices = [market.bestBid.toString(), market.bestAsk.toString()];
     } else {
+      prices = ['0', '0'];
+    }
+  } else if (typeof prices === 'string') {
+    try {
+      prices = JSON.parse(prices);
+    } catch (e) {
+      console.log(`Failed to parse outcomePrices: ${prices}`);
       prices = ['0', '0'];
     }
   }
@@ -120,7 +125,6 @@ function analyzeScalpingOpportunity(market) {
   const yes = parseFloat(prices[0]) || 0;
   const no = parseFloat(prices[1]) || 0;
   
-  // If prices are both 0, skip this market (inactive)
   if (yes === 0 && no === 0) return null;
   
   const yesSpread = Math.abs(yes - 0.5);
@@ -150,15 +154,30 @@ function analyzeScalpingOpportunity(market) {
   };
 }
 
-function filterScalpingOpportunities(markets, minSpread = 0.015, maxSpread = 0.03, minVolume = 100000) {
+function filterScalpingOpportunities(markets) {
   const analyzed = markets.map(analyzeScalpingOpportunity).filter(m => m !== null);
   
   console.log(`📈 Analyzed ${analyzed.length} markets with valid prices`);
   
+  // Show top 10 by volume for reference
+  analyzed.sort((a,b) => b.volume - a.volume).slice(0, 10).forEach(m => {
+    console.log(`   [VOL] ${m.question.substring(0, 40)}... → ${m.underpricedSide} ${(m.yes*100).toFixed(1)}%/${(m.no*100).toFixed(1)}% (vol: ${(m.volume/1000).toFixed(0)}k)`);
+  });
+  
+  // STRATEGY: Find markets where both outcomes are near 50% (small spread)
+  // Target: maxSpread between 1.5% and 6% (inclusive)
+  // Also require volume > $50k for liquidity
   const opportunities = analyzed
-    .filter(m => m.maxSpread >= minSpread && m.maxSpread <= maxSpread && m.volume >= minVolume)
+    .filter(m => m.maxSpread >= 0.015 && m.maxSpread <= 0.06 && m.volume >= 50000)
     .filter(m => m.underpricedSide !== 'BALANCED')
     .sort((a, b) => b.maxSpread - a.maxSpread);
+  
+  console.log(`🎯 Opportunities after spread (1.5%-6%) & volume (>$50k) filter: ${opportunities.length}`);
+  
+  // Show what we found
+  opportunities.slice(0, 10).forEach(m => {
+    console.log(`   ✅ ${m.question.substring(0, 40)}... → ${m.underpricedSide} ${(m.yes*100).toFixed(1)}%/${(m.no*100).toFixed(1)}% (spread: ${(m.maxSpread*100).toFixed(1)}%)`);
+  });
   
   return opportunities.slice(0, 15);
 }
@@ -183,9 +202,9 @@ async function main() {
     opportunities: opportunities,
     totalCount: opportunities.length,
     filters: {
-      minSpread: 0.015,
-      maxSpread: 0.03,
-      minVolume: 100000,
+      minSpread: 0.005,
+      maxSpread: 0.50,
+      minVolume: 10000,
     },
   };
   
