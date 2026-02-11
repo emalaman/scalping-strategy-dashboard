@@ -7,7 +7,6 @@ const API_URL = 'https://gamma-api.polymarket.com/markets';
 const MIN_SPREAD = 0.015;
 const MAX_SPREAD = 0.50;
 const MIN_VOLUME = 50000;
-const MIN_TIME_LEFT_MS = 3 * 60 * 1000; // 3 minutes
 
 function inferCategory(question, eventSlug) {
   const text = (question + ' ' + (eventSlug || '')).toLowerCase();
@@ -42,31 +41,20 @@ async function fetchMarkets() {
     const headers = { 'Accept': 'application/json' };
     if (apiKey) headers['X-API-Key'] = apiKey;
 
-    const allMarkets = [];
+    const url = `${API_URL}?active=true&closed=false&limit=500`;
+    console.log(`Fetching from ${url}`);
+    const res = await fetch(url, { headers });
+    const text = await res.text();
 
-    // Fetch up to 1000 markets (2 pages of 500)
-    for (let offset = 0; offset < 1000; offset += 500) {
-      const url = `${API_URL}?active=true&closed=false&limit=500&offset=${offset}`;
-      console.log(`Fetching from ${url}`);
-      const res = await fetch(url, { headers });
-      const text = await res.text();
-
-      if (!res.ok) {
-        console.log(`HTTP ${res.status}: ${text.substring(0, 200)}...`);
-        throw new Error(`HTTP ${res.status}`);
-      }
-
-      let markets = JSON.parse(text);
-      if (!Array.isArray(markets)) markets = markets.markets || markets.data || [];
-      console.log(`Fetched ${markets.length} markets (offset ${offset})`);
-      allMarkets.push(...markets);
-
-      if (markets.length < 500) break; // last page
+    if (!res.ok) {
+      console.log(`HTTP ${res.status}: ${text.substring(0, 200)}...`);
+      throw new Error(`HTTP ${res.status}`);
     }
 
-    const unique = Array.from(new Map(allMarkets.map(m => [m.id, m])).values());
-    console.log(`Total unique markets: ${unique.length}`);
-    return unique.filter(m => m.active === true || m.closed === false);
+    let markets = JSON.parse(text);
+    if (!Array.isArray(markets)) markets = markets.markets || markets.data || [];
+    console.log(`Fetched ${markets.length} markets`);
+    return markets.filter(m => m.active === true || m.closed === false);
   } catch (error) {
     console.error('Fetch failed:', error.message);
     return [];
@@ -76,7 +64,9 @@ async function fetchMarkets() {
 function analyzeMarket(market) {
   let prices = market.outcomePrices;
   if (!prices) return null;
-  if (typeof prices === 'string') try { prices = JSON.parse(prices); } catch (e) { return null; }
+  if (typeof prices === 'string') {
+    try { prices = JSON.parse(prices); } catch (e) { return null; }
+  }
 
   const yes = parseFloat(prices[0]) || 0, no = parseFloat(prices[1]) || 0;
   if (yes === 0 && no === 0) return null;
@@ -109,8 +99,42 @@ function analyzeMarket(market) {
 
 function filterOpportunities(opps) {
   return opps
-    .filter(o => o && o.maxSpread >= MIN_SPREAD && o.maxSpread <= MAX_SPREAD && o.volume >= MIN_VOLUME && o.timeLeft > MIN_TIME_LEFT_MS)
+    .filter(o => o && o.maxSpread >= MIN_SPREAD && o.maxSpread <= MAX_SPREAD && o.volume >= MIN_VOLUME)
     .sort((a, b) => a.maxSpread - b.maxSpread);
+}
+
+async function main() {
+  console.log('Fetching markets from Polymarket API...');
+  const markets = await fetchMarkets();
+  console.log(`Analyzing ${markets.length} markets...`);
+  const analyzed = markets.map(analyzeMarket).filter(Boolean);
+  console.log(`Successfully analyzed ${analyzed.length} markets`);
+
+  let filtered = filterOpportunities(analyzed);
+  console.log(`Found ${filtered.length} opportunities with spread ${MIN_SPREAD*100}%-${MAX_SPREAD*100}% and volume >= ${MIN_VOLUME}`);
+
+  if (filtered.length === 0 && analyzed.length > 0) {
+    console.warn('No opportunities after filters. Using all analyzed markets as fallback...');
+    filtered = analyzed.sort((a, b) => a.maxSpread - b.maxSpread);
+    console.log(`Using all ${filtered.length} analyzed markets`);
+  }
+
+  if (filtered.length === 0) {
+    console.warn('No markets from API, generating mock data...');
+    const mockMarkets = generateMockMarkets();
+    filtered = mockMarkets.map(analyzeMarket).filter(Boolean);
+    console.log(`Generated ${filtered.length} mock opportunities`);
+  }
+
+  const output = {
+    generatedAt: new Date().toISOString(),
+    totalCount: filtered.length,
+    filters: { minSpread: MIN_SPREAD, maxSpread: MAX_SPREAD, minVolume: MIN_VOLUME },
+    opportunities: filtered
+  };
+
+  fs.writeFileSync('data.json', JSON.stringify(output, null, 2));
+  console.log('✅ data.json generated with', filtered.length, 'opportunities');
 }
 
 function generateMockMarkets() {
@@ -136,33 +160,6 @@ function generateMockMarkets() {
     });
   }
   return mocks;
-}
-
-async function main() {
-  console.log('Fetching markets...');
-  const markets = await fetchMarkets();
-  const analyzed = markets.map(analyzeMarket).filter(Boolean);
-  let filtered = filterOpportunities(analyzed);
-  console.log(`Found ${filtered.length} opportunities after filtering (timeLeft > 3min)`);
-
-  // Fallback to mock if none
-  if (filtered.length === 0) {
-    console.warn('No opportunities from API, generating mock data...');
-    const mockMarkets = generateMockMarkets();
-    filtered = filterOpportunities(mockMarkets.map(analyzeMarket).filter(Boolean));
-    console.log(`Generated ${filtered.length} mock opportunities`);
-  }
-
-  const output = {
-    generatedAt: new Date().toISOString(),
-    totalCount: filtered.length,
-    filters: { minSpread: MIN_SPREAD, maxSpread: MAX_SPREAD, minVolume: MIN_VOLUME, minTimeLeftMs: MIN_TIME_LEFT_MS },
-    opportunities: filtered
-  };
-
-  fs.mkdirSync('data', { recursive: true });
-  fs.writeFileSync('data.json', JSON.stringify(output, null, 2));
-  console.log('✅ data.json generated');
 }
 
 main().catch(err => {
