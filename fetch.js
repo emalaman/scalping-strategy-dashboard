@@ -116,7 +116,7 @@ function analyzeMarket(market) {
 
 function filterOpportunities(opps) {
   return opps
-    .filter(o => o && o.maxSpread >= MIN_SPREAD && o.maxSpread <= MAX_SPREAD && o.volume >= MIN_VOLUME)
+    .filter(o => o && o.maxSpread >= MIN_SPREAD && o.maxSpread <= MAX_SPREAD && o.volume >= MIN_VOLUME && o.timeLeft > 0)
     .sort((a, b) => a.maxSpread - b.maxSpread);
 }
 
