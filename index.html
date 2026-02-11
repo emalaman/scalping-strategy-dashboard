@@ -137,15 +137,6 @@
       return n?.toLocaleString()||'0';
     }
     function formatPercent(n) { return (n*100).toFixed(2)+'%'; }
-    function timeAgo(s) {
-      const d = new Date(s), now = new Date();
-      const m = Math.floor((now-d)/6e4);
-      if (m<1) return 'Just now';
-      if (m<60) return m+'m ago';
-      const h = Math.floor(m/60);
-      if (h<24) return h+'h ago';
-      return Math.floor(h/24)+'d ago';
-    }
     function timeLeft(ms) {
       if (!ms || ms <= 0) return 'Ended';
       const days = Math.floor(ms / 86400000);
@@ -176,7 +167,6 @@
             <span class="badge ${sig.classes}">${sig.label}</span>
             <span class="badge bg-gray-800 text-gray-300 border-gray-600">${o.underpricedSide}</span>
           </div>
-          <span class="text-xs text-gray-500">${timeAgo(o.updatedAt)}</span>
         </div>
         <h3 class="text-lg font-bold text-white mb-4 line-clamp-2">${o.question}</h3>
         <div class="grid grid-cols-2 gap-4 mb-4">
