@@ -163,7 +163,11 @@
             <span class="badge bg-gray-800 text-gray-300 border-gray-600">${o.underpricedSide}</span>
           </div>
         </div>
-        <h3 class="text-lg font-bold text-white mb-4 line-clamp-2">${o.question}</h3>
+        <h3 class="text-lg font-bold text-white mb-2 line-clamp-2">${o.question}</h3>
+        <div class="mb-4">
+          <span class="text-sm text-gray-500">Final Target Sell: </span>
+          <span class="text-lg font-bold text-yellow-400">${formatPercent(o.underpricedSide === 'YES' ? o.no : o.yes)}</span>
+        </div>
         <div class="grid grid-cols-2 gap-4 mb-4">
           <div class="p-3 rounded ${o.yes<.5?'border border-blue-600':'border border-gray-700'} bg-dark-900">
             <div class="flex justify-between mb-1">
@@ -197,13 +201,9 @@
         <div class="mb-4 text-center border-b border-gray-700 pb-2">
           <span class="text-sm font-semibold text-primary-400">⏱️ ${o.timeLeft && o.timeLeft > 0 ? 'Ends in: '+timeLeft(o.timeLeft) : 'No end date'}</span>
         </div>
-        <button onclick="window.open('${o.marketUrl}','_blank')" class="w-full py-2 bg-primary-900/30 border border-primary-600 rounded hover:bg-primary-800/40 text-white font-semibold mb-3">
+        <button onclick="window.open('${o.marketUrl}','_blank')" class="w-full py-2 bg-primary-900/30 border border-primary-600 rounded hover:bg-primary-800/40 text-white font-semibold">
           🎯 ${o.underpricedSide} at ${formatPercent(o.underpricedPrice)} → Target +${target}%
         </button>
-        <div class="text-center">
-          <span class="text-sm text-gray-400">Final Target Sell: </span>
-          <span class="text-sm font-bold text-yellow-400">${formatPercent(o.underpricedSide === 'YES' ? o.no : o.yes)}</span>
-        </div>
       </article>`;
     }
 
