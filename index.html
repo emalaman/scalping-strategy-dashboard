@@ -166,7 +166,7 @@
         <h3 class="text-lg font-bold text-white mb-2 line-clamp-2">${o.question}</h3>
         <div class="mb-4">
           <span class="text-sm text-gray-500">Final Target Sell: </span>
-          <span class="text-lg font-bold text-yellow-400">${formatPercent(o.underpricedSide === 'YES' ? o.no : o.yes)}</span>
+          <span class="text-lg font-bold text-yellow-400">${formatPercent(o.underpricedPrice + o.maxSpread)}</span>
         </div>
         <div class="grid grid-cols-2 gap-4 mb-4">
           <div class="p-3 rounded ${o.yes<.5?'border border-blue-600':'border border-gray-700'} bg-dark-900">
