@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scalping Strategy Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: { 500: '#2196f3', 600: '#1e88e5', 700: '#1976d2', 800: '#1565c0', 900: '#0d47a1' },
+            dark: { 900: '#0a0a0a', 800: '#121212', 700: '#1a1a1a', 600: '#242424', 500: '#2e2e2e' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #0a0a0a; color: #e5e5e5; font-family: 'Inter', sans-serif; }
+    .border-primary { border-color: #1565c0; }
+    .card { transition: all .2s; border: 1px solid #333; border-radius: .5rem; background: #121212; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.3); }
+    .badge { font-size: .75rem; padding: .25rem .5rem; border-radius: 4px; font-weight: 600; border: 1px solid; }
+    .pagination-btn { padding: .25rem .75rem; border: 1px solid #444; background: #242424; color: #fff; border-radius: .25rem; margin: 0 .125rem; cursor: pointer; }
+    .pagination-btn.active { background: #1565c0; border-color: #1565c0; }
+    .pagination-btn:disabled { opacity: .5; cursor: not-allowed; }
+  </style>
+</head>
+<body class="min-h-screen bg-dark-900">
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <header class="mb-10 text-center">
+      <h1 class="text-4xl font-bold text-white border-b-2 border-primary-700 pb-2 inline-block">Scalping Strategy Dashboard</h1>
+      <p class="text-gray-400 text-lg mt-2">
+        Top <span id="total-count" class="text-white font-semibold">0</span> opportunities · Spread 1.5%-50% · Vol > 50K
+        <br>Last updated: <span id="last-update" class="text-primary-400 font-mono"></span>
+      </p>
+      <button onclick="location.reload()" class="mt-4 px-4 py-2 bg-primary-900/50 border border-primary-600 rounded hover:bg-primary-800/50 text-primary-200">🔄 Refresh</button>
+    </header>
+
+    <div class="flex justify-center mb-8 flex-wrap gap-4 items-center">
+      <label class="text-gray-300">Filter by Category:</label>
+      <select id="category-filter" onchange="applyFilters()" class="px-4 py-2 bg-dark-800 border border-gray-700 rounded text-white">
+        <option value="All">All Categories</option>
+      </select>
+    </div>
+
+    <div id="pagination-top" class="flex justify-center gap-2 mb-8"></div>
+
+    <div id="grid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8"></div>
+
+    <div id="pagination-bottom" class="flex justify-center gap-2 mt-8"></div>
+
+    <footer class="text-center py-8 text-gray-500 text-sm border-t border-gray-800 mt-12">
+      <p>Data from Polymarket Gamma API · Filters: Spread 1.5%-50% · Vol > 50K · Auto-refresh 5min</p>
+    </footer>
+  </div>
+
+  <script>
+    // Data generated at build time
+    const opportunities = [{"id":"m1","question":"Will Bitcoin hit $100K?","category":"Crypto","yes":0.48,"no":0.52,"yesSpread":0.020000000000000018,"noSpread":0.020000000000000018,"maxSpread":0.020000000000000018,"underpricedSide":"YES","underpricedPrice":0.48,"volume":2500000,"liquidity":1200000,"updatedAt":"2026-02-11T03:31:34.018Z","timeLeft":14725816016,"marketUrl":"https://polymarket.com/event/crypto/btc-100k"},{"id":"m2","question":"Will ETH ETF be approved?","category":"Crypto","yes":0.47,"no":0.53,"yesSpread":0.030000000000000027,"noSpread":0.030000000000000027,"maxSpread":0.030000000000000027,"underpricedSide":"YES","underpricedPrice":0.47,"volume":1800000,"liquidity":846000,"updatedAt":"2026-02-11T03:26:34.018Z","timeLeft":14725816016,"marketUrl":"https://polymarket.com/event/crypto/eth-etf"}];
+
+    const PAGE_SIZE = 50;
+    let currentPage = 1, currentCategory = 'All';
+
+    function formatNumber(n) {
+      if (n >= 1e6) return (n/1e6).toFixed(1)+'M';
+      if (n >= 1e3) return (n/1e3).toFixed(1)+'K';
+      return n?.toLocaleString()||'0';
+    }
+    function formatPercent(n) { return (n*100).toFixed(2)+'%'; }
+    function timeAgo(s) {
+      const d = new Date(s), now = new Date();
+      const m = Math.floor((now-d)/6e4);
+      if (m<1) return 'Just now';
+      if (m<60) return m+'m ago';
+      const h = Math.floor(m/60);
+      if (h<24) return h+'h ago';
+      return Math.floor(h/24)+'d ago';
+    }
+    function timeLeft(ms) {
+      if (!ms||ms<=0) return 'Ended';
+      const d = Math.floor(ms/864e5), h = Math.floor((ms%864e5)/36e5);
+      return d>0? d+'d '+h+'h' : h+'h';
+    }
+    function getSpreadColor(s) { return s>=.025?'text-green-400':s>=.02?'text-yellow-500':'text-orange-400'; }
+    function getSideColor(s) { return s==='YES'?'text-blue-400':'text-pink-400'; }
+    function getSignal(price) {
+      if (price<.48) return {t:'STRONG BUY',c:'bg-green-900/30 text-green-400 border-green-600'};
+      if (price<.49) return {t:'BUY',c:'bg-blue-900/30 text-blue-400 border-blue-600'};
+      if (price>.51) return {t:'STRONG SELL',c:'bg-red-900/30 text-red-400 border-red-600'};
+      if (price>.5) return {t:'SELL',c:'bg-orange-900/30 text-orange-400 border-orange-600'};
+      return {t:'NEUTRAL',c:'bg-gray-800 text-gray-400 border-gray-600'};
+    }
+
+    function generateCard(o) {
+      const sig = getSignal(o.underpricedPrice);
+      const spreadColor = getSpreadColor(o.maxSpread);
+      const target = (o.maxSpread*100).toFixed(1);
+      return `
+      <article class="card card-hover p-5" data-category="${o.category}">
+        <div class="flex justify-between mb-4">
+          <div class="flex gap-2">
+            <span class="badge ${sig.c}">${sig.t}</span>
+            <span class="badge bg-gray-800 text-gray-300 border-gray-600">${o.underpricedSide}</span>
+          </div>
+          <span class="text-xs text-gray-500">${timeAgo(o.updatedAt)}</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-4 line-clamp-2">${o.question}</h3>
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <div class="p-3 rounded ${o.yes<.5?'border border-blue-600':'border border-gray-700'} bg-dark-900">
+            <div class="flex justify-between mb-1">
+              <span class="text-gray-400 text-sm">YES</span>
+              <span class="${getSideColor('YES')} font-bold">${formatPercent(o.yes)}</span>
+            </div>
+            <div class="text-xs text-gray-500">Spread: ${formatPercent(o.yesSpread)}</div>
+          </div>
+          <div class="p-3 rounded ${o.no<.5?'border border-pink-600':'border border-gray-700'} bg-dark-900">
+            <div class="flex justify-between mb-1">
+              <span class="text-gray-400 text-sm">NO</span>
+              <span class="${getSideColor('NO')} font-bold">${formatPercent(o.no)}</span>
+            </div>
+            <div class="text-xs text-gray-500">Spread: ${formatPercent(o.noSpread)}</div>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-2 text-xs mb-4">
+          <div class="p-2 rounded text-center border border-gray-700 bg-dark-900">
+            <div class="text-gray-500">Spread</div>
+            <div class="${spreadColor} font-bold">${(o.maxSpread*100).toFixed(1)}%</div>
+          </div>
+          <div class="p-2 rounded text-center border border-gray-700 bg-dark-900">
+            <div class="text-gray-400">Vol</div>
+            <div class="text-white font-bold">${formatNumber(o.volume)}</div>
+          </div>
+          <div class="p-2 rounded text-center border border-gray-700 bg-dark-900">
+            <div class="text-gray-400">Liq</div>
+            <div class="text-green-400 font-bold">${formatNumber(o.liquidity)}</div>
+          </div>
+        </div>
+        ${o.timeLeft?`<div class="mb-4 text-center border-b border-gray-700 pb-2"><span class="text-xs text-gray-400">⏱️ Ends: <span class="font-mono text-primary-400">${timeLeft(o.timeLeft)}</span></span></div>`:''}
+        <button onclick="window.open('${o.marketUrl}','_blank')" class="w-full py-2 bg-primary-900/30 border border-primary-600 rounded hover:bg-primary-800/40 text-white font-semibold">
+          🎯 ${o.underpricedSide} at ${formatPercent(o.underpricedPrice)} → Target +${target}%
+        </button>
+      </article>`;
+    }
+
+    function render() {
+      const filtered = currentCategory==='All'? opportunities : opportunities.filter(o=>o.category===currentCategory);
+      const totalPages = Math.ceil(filtered.length/PAGE_SIZE);
+      const start = (currentPage-1)*PAGE_SIZE;
+      const pageData = filtered.slice(start, start+PAGE_SIZE);
+
+      document.getElementById('grid').innerHTML = pageData.map(generateCard).join('');
+
+      // Pagination controls
+      const top = document.getElementById('pagination-top');
+      const bot = document.getElementById('pagination-bottom');
+      let btns = '';
+      btns += `<button class="pagination-btn" ${currentPage===1?'disabled':''} onclick="changePage(${currentPage-1})">← Prev</button>`;
+      for(let p=1;p<=totalPages;p++) {
+        if(p===1||p===totalPages||(p>=currentPage-2&&p<=currentPage+2)){
+          btns += `<button class="pagination-btn ${p===currentPage?'active':''}" onclick="changePage(${p})">${p}</button>`;
+        } else if(p===currentPage-3||p===currentPage+3){
+          btns += `<span class="text-gray-500">...</span>`;
+        }
+      }
+      btns += `<button class="pagination-btn" ${currentPage===totalPages?'disabled':''} onclick="changePage(${currentPage+1})">Next →</button>`;
+      top.innerHTML = btns; bot.innerHTML = btns;
+    }
+
+    function changePage(p) {
+      const filtered = currentCategory==='All'? opportunities : opportunities.filter(o=>o.category===currentCategory);
+      const totalPages = Math.ceil(filtered.length/PAGE_SIZE);
+      if(p<1||p>totalPages) return;
+      currentPage = p; render();
+    }
+
+    function applyFilters() {
+      const sel = document.getElementById('category-filter');
+      currentCategory = sel.value;
+      currentPage = 1;
+      render();
+    }
+
+    // Init
+    (function(){
+      document.getElementById('total-count').textContent = opportunities.length;
+      document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+
+      // Category dropdown
+      const cats = ['All', ...new Set(opportunities.map(o=>o.category))].sort();
+      const sel = document.getElementById('category-filter');
+      cats.forEach(cat => {
+        const count = cat==='All'? opportunities.length : opportunities.filter(o=>o.category===cat).length;
+        sel.innerHTML += `<option value="${cat}" ${cat===currentCategory?'selected':''}>${cat} (${count})</option>`;
+      });
+
+      render();
+      setTimeout(location.reload, 5*60*1000);
+    })();
+  </script>
+</body>
+</html>
