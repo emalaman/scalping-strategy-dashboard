@@ -1,0 +1,73 @@
+name: Discover Polymarket API Endpoint
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * *'  # Once daily at noon UTC
+
+jobs:
+  test-endpoints:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+    
+    - name: Install dependencies (if needed)
+      run: npm ci || echo "No package.json, continuing with core fetch"
+    
+    - name: Create test script
+      run: |
+        cat > test-endpoints.js << 'EOF'
+        const API_KEY = process.env.POLYMARKET_API_KEY;
+        const ENDPOINTS = [
+          { name: 'Gamma GraphQL', url: 'https://gamma-api.polymarket.com/graphql', method: 'POST', body: { query: 'query { markets(first:1) { id question } }' } },
+          { name: 'API GraphQL', url: 'https://api.polymarket.com/graphql', method: 'POST', body: { query: 'query { markets(first:1) { id question } }' } },
+          { name: 'CLOB GraphQL', url: 'https://clob.polymarket.com/graphql', method: 'POST', body: { query: 'query { markets(first:1) { id question } }' } },
+          { name: 'Gamma REST', url: 'https://gamma-api.polymarket.com/api/v1/markets', method: 'GET' },
+          { name: 'API REST', url: 'https://api.polymarket.com/api/v1/markets', method: 'GET' },
+        ];
+        (async () => {
+          if (!API_KEY) { console.log('❌ POLYMARKET_API_KEY not set'); process.exit(1); }
+          for (const ep of ENDPOINTS) {
+            try {
+              const opts = { method: ep.method, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${API_KEY}` } };
+              if (ep.body) opts.body = JSON.stringify(ep.body);
+              const res = await fetch(ep.url, opts);
+              console.log(`Testing ${ep.name}: ${res.status}`);
+              if (res.ok) {
+                const txt = await res.text();
+                console.log(`Response: ${txt.substring(0, 150)}...`);
+                console.log(`::set-output name=endpoint::${ep.url}`);
+                console.log(`::set-output name=method::${ep.method}`);
+                if (ep.body) console.log(`::set-output name=hasBody::true`);
+                process.exit(0);
+              }
+            } catch (e) { console.log(`Error: ${e.message}`); }
+          }
+          console.log('::set-output name=endpoint::NONE');
+        })().catch(() => process.exit(1));
+        EOF
+        node test-endpoints.js
+      env:
+        POLYMARKET_API_KEY: ${{ secrets.POLYMARKET_API_KEY }}
+        
+    - name: Save discovered endpoint
+      run: |
+        ENDPOINT="${{ job.services.test.outputs.endpoint }}"
+        if [ "$ENDPOINT" != "NONE" ] && [ -n "$ENDPOINT" ]; then
+          echo "✅ Working endpoint: $ENDPOINT"
+          echo "ENDPOINT=$ENDPOINT" >> $GITHUB_ENV
+        else
+          echo "⚠️ No working endpoint found, using fallback"
+          echo "ENDPOINT=https://gamma-api.polymarket.com/graphql" >> $GITHUB_ENV
+          echo "USE_MOCK=true" >> $GITHUB_ENV
+        fi
+      shell: bash

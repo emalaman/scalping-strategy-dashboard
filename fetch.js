@@ -1,50 +1,27 @@
 const fs = require('fs');
 
-// Polymarket Gamma API endpoint
-const API_URL = 'https://gamma-api.polymarket.com/graphql';
-
-const QUERY = `
-query ActiveMarkets {
-  markets(
-    first: 100
-    where: { closed: false }
-    orderBy: updatedAt
-    orderDirection: desc
-  ) {
-    id
-    question
-    outcomePrices
-    updatedAt
-    volume
-    liquidity {
-      YES
-      NO
-    }
-  }
-}
-`;
+// Polymarket API endpoint (REST, not GraphQL)
+const API_URL = 'https://gamma-api.polymarket.com/markets';
 
 async function fetchMarkets() {
   try {
-    // Get API key from environment (GitHub Actions secret)
     const apiKey = process.env.POLYMARKET_API_KEY;
     
     const headers = {
-      'Content-Type': 'application/json',
+      'Accept': 'application/json',
     };
     
     if (apiKey) {
-      headers['Authorization'] = `Bearer ${apiKey}`;
-      console.log('✅ Using authenticated API (Bearer token)');
+      headers['X-API-Key'] = apiKey;
+      console.log('✅ Using authenticated API (X-API-Key)');
     } else {
-      console.warn('⚠️  POLYMARKET_API_KEY not set. Use mock data or add secret in GitHub Actions.');
+      console.warn('⚠️  POLYMARKET_API_KEY not set. Using mock data.');
     }
 
     console.log(`Fetching from ${API_URL}`);
     const response = await fetch(API_URL, {
-      method: 'POST',
+      method: 'GET',
       headers: headers,
-      body: JSON.stringify({ query: QUERY }),
     });
 
     const text = await response.text();
@@ -53,15 +30,25 @@ async function fetchMarkets() {
       throw new Error(`HTTP ${response.status}`);
     }
 
-    const data = JSON.parse(text);
-    if (data.errors) {
-      console.log(`GraphQL errors:`, data.errors.map(e => e.message).join(', '));
-      throw new Error('GraphQL errors');
+    let markets;
+    try {
+      markets = JSON.parse(text);
+      // Ensure it's an array
+      if (!Array.isArray(markets)) {
+        markets = markets.markets || markets.data || [];
+      }
+    } catch (e) {
+      console.log('Response is not valid JSON:', text.substring(0, 200));
+      throw new Error('Invalid JSON response');
     }
 
-    const markets = data.data?.markets || [];
     console.log(`✅ Fetched ${markets.length} markets`);
-    return markets;
+    
+    // Filter only active (non-closed) markets
+    const activeMarkets = markets.filter(m => m.active === true || m.closed === false);
+    console.log(`📊 Active markets: ${activeMarkets.length}`);
+    
+    return activeMarkets;
   } catch (error) {
     console.warn(`⚠️  API fetch failed: ${error.message}`);
     return getMockMarkets();
@@ -116,20 +103,18 @@ function getMockMarkets() {
 }
 
 function analyzeScalpingOpportunity(market) {
-  const prices = market.outcomePrices || [];
+  // Polymarket REST returns different field names
+  const prices = market.outcomePrices || market.outcomes?.map(o => o.price) || [0, 0];
   const yes = parseFloat(prices[0]) || 0;
   const no = parseFloat(prices[1]) || 0;
   
-  // Spread difference from equilibrium (50/50)
   const yesSpread = Math.abs(yes - 0.5);
   const noSpread = Math.abs(no - 0.5);
   const maxSpread = Math.max(yesSpread, noSpread);
   
-  // Determine which side is underpriced
   const underpricedSide = yes < 0.5 ? 'YES' : no < 0.5 ? 'NO' : 'BALANCED';
-  const underpricedPrice = yes < 0.5 ? yes : no;
   
-  const updated = new Date(market.updatedAt);
+  const updated = new Date(market.updatedAt || market.lastUpdate || Date.now());
   const hoursSinceUpdate = (Date.now() - updated) / 3600000;
   
   return {
@@ -142,10 +127,10 @@ function analyzeScalpingOpportunity(market) {
     noSpread,
     maxSpread,
     underpricedSide,
-    underpricedPrice,
-    volume: market.volume || 0,
-    liquidity: market.liquidity || { YES: 0, NO: 0 },
-    updatedAt: market.updatedAt,
+    underpricedPrice: yes < 0.5 ? yes : no,
+    volume: parseFloat(market.volume) || parseFloat(market.volumeNum) || 0,
+    liquidity: market.liquidity || (market.liquidityNum ? { YES: market.liquidityNum, NO: market.liquidityNum } : { YES: 0, NO: 0 }),
+    updatedAt: market.updatedAt || market.lastUpdate,
     hoursSinceUpdate,
   };
 }
