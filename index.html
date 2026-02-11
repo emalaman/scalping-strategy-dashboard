@@ -95,9 +95,13 @@
       return Math.floor(h/24)+'d ago';
     }
     function timeLeft(ms) {
-      if (!ms||ms<=0) return 'Ended';
-      const d = Math.floor(ms/864e5), h = Math.floor((ms%864e5)/36e5);
-      return d>0? d+'d '+h+'h' : h+'h';
+      if (!ms || ms <= 0) return 'Ended';
+      const days = Math.floor(ms / 86400000);
+      const hours = Math.floor((ms % 86400000) / 3600000);
+      const minutes = Math.floor((ms % 3600000) / 60000);
+      if (days > 0) return `${days}d ${hours}h`;
+      if (hours > 0) return `${hours}h ${minutes}m`;
+      return `${minutes}m`;
     }
     function getSpreadColor(s) { return s>=.025?'text-green-400':s>=.02?'text-yellow-500':'text-orange-400'; }
     function getSideColor(s) { return s==='YES'?'text-blue-400':'text-pink-400'; }
@@ -153,7 +157,9 @@
             <div class="text-green-400 font-bold">${formatNumber(o.liquidity)}</div>
           </div>
         </div>
-        ${o.timeLeft?`<div class="mb-4 text-center border-b border-gray-700 pb-2"><span class="text-xs text-gray-400">⏱️ Ends: <span class="font-mono text-primary-400">${timeLeft(o.timeLeft)}</span></span></div>`:''}
+        <div class="mb-4 text-center border-b border-gray-700 pb-2">
+          <span class="text-xs text-gray-400">⏱️ Ends: <span class="font-mono text-primary-400">${o.timeLeft ? timeLeft(o.timeLeft) : 'No end date'}</span></span>
+        </div>
         <button onclick="window.open('${o.marketUrl}','_blank')" class="w-full py-2 bg-primary-900/30 border border-primary-600 rounded hover:bg-primary-800/40 text-white font-semibold">
           🎯 ${o.underpricedSide} at ${formatPercent(o.underpricedPrice)} → Target +${target}%
         </button>
