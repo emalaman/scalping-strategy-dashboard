@@ -1,23 +1,23 @@
 # Scalping Strategy Dashboard
 
-Real-time arbitrage opportunities for Polymarket, built with **React + Vite**.
+Real-time arbitrage opportunities for Polymarket, built as a static HTML dashboard generated from Polymarket market data.
 
 ![Dashboard Preview](public/preview.png) <!-- optional -->
 
 ## Features
 
-- **Dynamic client-side rendering**: Fast, responsive grid
-- **Category filtering**: Filter by Sports, Elections, Crypto, etc.
-- **Pagination**: 50 items per page, handles 400+ opportunities
-- **Auto-refresh**: Every 5 minutes
-- **Zero external dependencies**: Pure static build, deploy to GitHub Pages
+- **Static client-side dashboard**: generated `index.html` with embedded opportunity data
+- **Category/signal/time filtering**: filter by Sports, Elections, Crypto, signal, and time to close
+- **Pagination**: handles hundreds of opportunities
+- **Refresh button / static rebuild flow**: refreshes the current generated page; data updates when the build runs again
+- **Small dependency surface**: data fetch uses `node-fetch`; UI is plain HTML/JS with Tailwind CDN
 
 ## Tech Stack
 
-- **React 18** + Vite (-fast HMR, optimized builds)
-- **Tailwind CSS** (dark theme, professional style)
-- **GitHub Actions** (scheduled builds every 5 min)
-- **GitHub Pages** (static hosting)
+- **Node.js scripts** for fetching and generating data
+- **Polymarket Gamma API** for market metadata
+- **Tailwind CDN** for dashboard styling
+- **GitHub Pages** friendly static output
 
 ## Quick Start
 
@@ -27,20 +27,17 @@ Real-time arbitrage opportunities for Polymarket, built with **React + Vite**.
 # Install dependencies
 npm install
 
-# Run dev server
-npm run dev
-# Open http://localhost:3000
-
-# Build for production
+# Fetch Polymarket markets and regenerate data.json/index.html
 npm run build
 
-# Preview production build
-npm run preview
+# Optional: serve the directory locally with any static server
+python3 -m http.server 3000
+# Open http://localhost:3000
 ```
 
 ### Build Data & Generate Site
 
-The build script fetches market data from Polymarket API, filters, and generates `src/data/opportunities.json`. Then Vite builds the static site.
+The build script fetches market data from Polymarket API, filters opportunities, writes `data.json`, and injects the generated opportunities into `index.html`.
 
 ```bash
 npm run build
@@ -84,50 +81,31 @@ Your site will be at: `https://YOUR_USERNAME.github.io/scalping-strategy-dashboa
 
 The workflow `.github/workflows/deploy.yml` runs on schedule (`*/5 * * * *`) and on push to `main`.
 
-It:
-1. Installs dependencies
-2. Runs `npm run build` (generates data + static site)
-3. Deploys `dist/` to GitHub Pages using `peaceiris/actions-gh-pages`
+It should:
+1. Install dependencies
+2. Run `npm run build` (generates `data.json` + updates `index.html`)
+3. Deploy the static files to GitHub Pages
 
 **Important**: The repository must have **Workflow permissions: Read and write** (Settings → Actions → General).
 
 ## Project Structure
 
 ```
-├── src/
-│   ├── components/
-│   │   ├── CategoryFilter.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Header.jsx
-│   │   ├── MarketCard.jsx
-│   │   └── Pagination.jsx
-│   ├── data/                    # Generated at build
-│   │   └── opportunities.json
-│   ├── hooks/
-│   │   └── useOpportunities.js
-│   ├── utils/
-│   │   ├── categories.js        # inferCategory
-│   │   ├── formatters.js
-│   │   └── helpers.js
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-├── scripts/
-│   └── build.js                 # Fetch & filter data
-├── public/
-│   └── vite.svg
-├── .github/workflows/deploy.yml
-├── vite.config.js
-├── tailwind.config.js
+├── fetch.js                     # Fetch & analyze Polymarket markets
+├── generate.js                  # Inject generated data into index.html
+├── data.json                    # Generated opportunity data
+├── index.html                   # Static dashboard
 ├── package.json
-└── README.md
+├── README.md
+├── README-REACT.md              # React/Vite notes, if that path is restored later
+└── src/                         # React/Vite prototype files, not used by current package scripts
 ```
 
 ## Customization
 
 ### Change Filter Criteria
 
-Edit `scripts/build.js`:
+Edit `fetch.js`:
 
 ```js
 const minSpread = 0.015; // 1.5%
