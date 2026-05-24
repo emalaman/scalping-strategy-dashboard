@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-24T15:14:09.845Z",
+  "generatedAt": "2026-05-24T15:43:10.102Z",
   "totalCount": 91,
   "filters": {
     "minSpread": 0.015,
@@ -7,24 +7,6 @@
     "minVolume": 20000
   },
   "opportunities": [
-    {
-      "id": "540817",
-      "question": "New Rihanna Album before GTA VI?",
-      "category": "Other",
-      "yes": 0.515,
-      "no": 0.485,
-      "yesSpread": 0.015000000000000013,
-      "noSpread": 0.015000000000000013,
-      "maxSpread": 0.015000000000000013,
-      "underpricedSide": "NO",
-      "underpricedPrice": 0.485,
-      "signal": "SELL",
-      "volume": 747341.7079869987,
-      "liquidity": 17365.9773,
-      "updatedAt": "2026-05-24T15:06:14.786123Z",
-      "timeLeft": 5820350160,
-      "marketUrl": "https://polymarket.com/event/what-will-happen-before-gta-vi/new-rhianna-album-before-gta-vi-926"
-    },
     {
       "id": "540819",
       "question": "Will Jesus Christ return before GTA VI?",
@@ -38,10 +20,28 @@
       "underpricedPrice": 0.485,
       "signal": "BUY",
       "volume": 11463652.850101802,
-      "liquidity": 409418.8292,
-      "updatedAt": "2026-05-24T15:09:03.792164Z",
-      "timeLeft": 5820350156,
+      "liquidity": 410106.1418,
+      "updatedAt": "2026-05-24T15:39:39.00354Z",
+      "timeLeft": 5818609899,
       "marketUrl": "https://polymarket.com/event/what-will-happen-before-gta-vi/will-jesus-christ-return-before-gta-vi-665"
+    },
+    {
+      "id": "540817",
+      "question": "New Rihanna Album before GTA VI?",
+      "category": "Other",
+      "yes": 0.52,
+      "no": 0.48,
+      "yesSpread": 0.020000000000000018,
+      "noSpread": 0.020000000000000018,
+      "maxSpread": 0.020000000000000018,
+      "underpricedSide": "NO",
+      "underpricedPrice": 0.48,
+      "signal": "SELL",
+      "volume": 747405.2279869987,
+      "liquidity": 16610.07,
+      "updatedAt": "2026-05-24T15:38:59.021495Z",
+      "timeLeft": 5818609902,
+      "marketUrl": "https://polymarket.com/event/what-will-happen-before-gta-vi/new-rhianna-album-before-gta-vi-926"
     },
     {
       "id": "540818",
@@ -56,9 +56,9 @@
       "underpricedPrice": 0.47,
       "signal": "STRONG_SELL",
       "volume": 735406.8433709468,
-      "liquidity": 13988.0068,
-      "updatedAt": "2026-05-24T15:06:50.156884Z",
-      "timeLeft": 5820350158,
+      "liquidity": 13860.3479,
+      "updatedAt": "2026-05-24T15:41:48.229485Z",
+      "timeLeft": 5818609900,
       "marketUrl": "https://polymarket.com/event/what-will-happen-before-gta-vi/new-playboi-carti-album-before-gta-vi-421"
     },
     {
@@ -73,10 +73,10 @@
       "underpricedSide": "NO",
       "underpricedPrice": 0.385,
       "signal": "STRONG_SELL",
-      "volume": 13313053.284975946,
-      "liquidity": 203645.9571,
-      "updatedAt": "2026-05-24T15:06:41.447902Z",
-      "timeLeft": 3228350156,
+      "volume": 13313904.279810946,
+      "liquidity": 208454.2583,
+      "updatedAt": "2026-05-24T15:39:05.903505Z",
+      "timeLeft": 3226609899,
       "marketUrl": "https://polymarket.com/event/2026-nba-champion/will-the-oklahoma-city-thunder-win-the-2026-nba-finals"
     },
     {
@@ -92,9 +92,9 @@
       "underpricedPrice": 0.375,
       "signal": "STRONG_BUY",
       "volume": 1123051.4215510157,
-      "liquidity": 103767.6252,
-      "updatedAt": "2026-05-24T15:06:22.417477Z",
-      "timeLeft": 3141950156,
+      "liquidity": 113470.4649,
+      "updatedAt": "2026-05-24T15:42:05.789495Z",
+      "timeLeft": 3140209899,
       "marketUrl": "https://polymarket.com/event/2026-nhl-stanley-cup-champion/will-the-carolina-hurricanes-win-the-2026-nhl-stanley-cup"
     },
     {
@@ -110,9 +110,9 @@
       "underpricedPrice": 0.3065,
       "signal": "STRONG_BUY",
       "volume": 2350095.139986998,
-      "liquidity": 99840.2212,
-      "updatedAt": "2026-05-24T15:12:23.019669Z",
-      "timeLeft": 3141950156,
+      "liquidity": 98941.6442,
+      "updatedAt": "2026-05-24T15:34:31.757488Z",
+      "timeLeft": 3140209899,
       "marketUrl": "https://polymarket.com/event/2026-nhl-stanley-cup-champion/will-the-vegas-golden-knights-win-the-2026-nhl-stanley-cup"
     },
     {
@@ -128,9 +128,9 @@
       "underpricedPrice": 0.2405,
       "signal": "STRONG_BUY",
       "volume": 25473575.737687554,
-      "liquidity": 238475.90499,
-      "updatedAt": "2026-05-24T15:07:05.290308Z",
-      "timeLeft": 77532350156,
+      "liquidity": 238245.45135,
+      "updatedAt": "2026-05-24T15:31:43.097452Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-gavin-newsom-win-the-2028-democratic-presidential-nomination-568"
     },
     {
@@ -145,10 +145,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.2315,
       "signal": "STRONG_BUY",
-      "volume": 15705002.732775606,
-      "liquidity": 231253.81384,
-      "updatedAt": "2026-05-24T15:07:08.499121Z",
-      "timeLeft": 3228350156,
+      "volume": 15705414.657253606,
+      "liquidity": 239711.94576,
+      "updatedAt": "2026-05-24T15:41:52.430526Z",
+      "timeLeft": 3226609899,
       "marketUrl": "https://polymarket.com/event/2026-nba-champion/will-the-new-york-knicks-win-the-2026-nba-finals"
     },
     {
@@ -163,10 +163,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.1775,
       "signal": "STRONG_BUY",
-      "volume": 29923448.994940385,
-      "liquidity": 692909.73679,
-      "updatedAt": "2026-05-24T15:08:24.353909Z",
-      "timeLeft": 4869950156,
+      "volume": 29926161.511675384,
+      "liquidity": 677356.75774,
+      "updatedAt": "2026-05-24T15:39:28.729244Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-france-win-the-2026-fifa-world-cup-924"
     },
     {
@@ -181,46 +181,46 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.1745,
       "signal": "STRONG_BUY",
-      "volume": 23905376.857051093,
-      "liquidity": 401273.40274,
-      "updatedAt": "2026-05-24T15:12:02.338115Z",
-      "timeLeft": 4869950156,
+      "volume": 23907273.444192093,
+      "liquidity": 401915.28377,
+      "updatedAt": "2026-05-24T15:34:12.878307Z",
+      "timeLeft": 4868209899,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-spain-win-the-2026-fifa-world-cup-963"
     },
     {
       "id": "553828",
       "question": "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?",
       "category": "Sports",
-      "yes": 0.1725,
-      "no": 0.8275,
-      "yesSpread": 0.3275,
-      "noSpread": 0.3275,
-      "maxSpread": 0.3275,
+      "yes": 0.17,
+      "no": 0.83,
+      "yesSpread": 0.32999999999999996,
+      "noSpread": 0.32999999999999996,
+      "maxSpread": 0.32999999999999996,
       "underpricedSide": "YES",
-      "underpricedPrice": 0.1725,
+      "underpricedPrice": 0.17,
       "signal": "STRONG_BUY",
-      "volume": 14993020.849084076,
-      "liquidity": 99828.83465,
-      "updatedAt": "2026-05-24T15:12:20.800501Z",
-      "timeLeft": 3141950156,
+      "volume": 14993219.789084075,
+      "liquidity": 97164.89556,
+      "updatedAt": "2026-05-24T15:34:29.276928Z",
+      "timeLeft": 3140209899,
       "marketUrl": "https://polymarket.com/event/2026-nhl-stanley-cup-champion/will-the-colorado-avalanche-win-the-2026-nhl-stanley-cup"
     },
     {
       "id": "556108",
       "question": "Will MegaETH perform an airdrop by June 30? ",
       "category": "Tech",
-      "yes": 0.1605,
-      "no": 0.8395,
-      "yesSpread": 0.3395,
-      "noSpread": 0.3395,
-      "maxSpread": 0.3395,
+      "yes": 0.1595,
+      "no": 0.8405,
+      "yesSpread": 0.3405,
+      "noSpread": 0.3405,
+      "maxSpread": 0.3405,
       "underpricedSide": "YES",
-      "underpricedPrice": 0.1605,
+      "underpricedPrice": 0.1595,
       "signal": "STRONG_BUY",
       "volume": 1546279.7024109967,
-      "liquidity": 4094.50736,
-      "updatedAt": "2026-05-24T15:09:43.52291Z",
-      "timeLeft": 3228350156,
+      "liquidity": 4099.92843,
+      "updatedAt": "2026-05-24T15:30:36.608245Z",
+      "timeLeft": 3226609899,
       "marketUrl": "https://polymarket.com/event/megaeth-airdrop-by/will-megaeth-perform-an-airdrop-by-june-30-143-229-513-574-212-254"
     },
     {
@@ -235,10 +235,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.1555,
       "signal": "STRONG_BUY",
-      "volume": 30045986.724910527,
-      "liquidity": 286306.55017,
-      "updatedAt": "2026-05-24T15:07:44.24923Z",
-      "timeLeft": 3228350156,
+      "volume": 30046671.020292528,
+      "liquidity": 286045.92631,
+      "updatedAt": "2026-05-24T15:31:52.428654Z",
+      "timeLeft": 3226609899,
       "marketUrl": "https://polymarket.com/event/2026-nba-champion/will-the-san-antonio-spurs-win-the-2026-nba-finals"
     },
     {
@@ -253,10 +253,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.144,
       "signal": "STRONG_BUY",
-      "volume": 3048045.4452099996,
-      "liquidity": 120061.61473,
-      "updatedAt": "2026-05-24T15:09:45.034023Z",
-      "timeLeft": 3141950156,
+      "volume": 3048050.5752099995,
+      "liquidity": 120415.74354,
+      "updatedAt": "2026-05-24T15:30:39.866657Z",
+      "timeLeft": 3140209899,
       "marketUrl": "https://polymarket.com/event/2026-nhl-stanley-cup-champion/will-the-montreal-canadiens-win-the-2026-nhl-stanley-cup"
     },
     {
@@ -271,10 +271,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.1125,
       "signal": "STRONG_BUY",
-      "volume": 19359530.65084699,
-      "liquidity": 1364748.54806,
-      "updatedAt": "2026-05-24T15:09:04.775823Z",
-      "timeLeft": 4869950156,
+      "volume": 19366033.455265988,
+      "liquidity": 1362711.72193,
+      "updatedAt": "2026-05-24T15:39:39.424615Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-england-win-the-2026-fifa-world-cup-937"
     },
     {
@@ -289,10 +289,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0905,
       "signal": "STRONG_BUY",
-      "volume": 13008580.793525202,
-      "liquidity": 267225.82613,
-      "updatedAt": "2026-05-24T15:05:40.205072Z",
-      "timeLeft": 77532350156,
+      "volume": 13008642.793525202,
+      "liquidity": 267081.90787,
+      "updatedAt": "2026-05-24T15:31:09.994368Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-alexandria-ocasio-cortez-win-the-2028-democratic-presidential-nomination-653"
     },
     {
@@ -307,10 +307,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0895,
       "signal": "STRONG_BUY",
-      "volume": 21311926.37911001,
-      "liquidity": 1344026.09982,
-      "updatedAt": "2026-05-24T15:05:07.600895Z",
-      "timeLeft": 4869950156,
+      "volume": 21314503.49021501,
+      "liquidity": 1341347.51144,
+      "updatedAt": "2026-05-24T15:40:23.013593Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-brazil-win-the-2026-fifa-world-cup-183"
     },
     {
@@ -325,10 +325,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0875,
       "signal": "STRONG_BUY",
-      "volume": 22947529.674693823,
-      "liquidity": 315156.61577,
-      "updatedAt": "2026-05-24T15:06:53.953818Z",
-      "timeLeft": 4869950156,
+      "volume": 22966016.77740482,
+      "liquidity": 299715.58498,
+      "updatedAt": "2026-05-24T15:41:49.186161Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-portugal-win-the-2026-fifa-world-cup-912"
     },
     {
@@ -344,9 +344,9 @@
       "underpricedPrice": 0.0865,
       "signal": "STRONG_BUY",
       "volume": 11700111.664294975,
-      "liquidity": 321349.51504,
-      "updatedAt": "2026-05-24T15:11:45.835619Z",
-      "timeLeft": 77532350156,
+      "liquidity": 322403.85543,
+      "updatedAt": "2026-05-24T15:33:57.77311Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-kamala-harris-win-the-2028-democratic-presidential-nomination-641"
     },
     {
@@ -361,10 +361,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0825,
       "signal": "STRONG_BUY",
-      "volume": 20588173.56362302,
-      "liquidity": 1297788.62366,
-      "updatedAt": "2026-05-24T15:07:20.871839Z",
-      "timeLeft": 4869950156,
+      "volume": 20594404.75285002,
+      "liquidity": 1293403.38088,
+      "updatedAt": "2026-05-24T15:40:28.427979Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-argentina-win-the-2026-fifa-world-cup-245"
     },
     {
@@ -379,10 +379,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0645,
       "signal": "STRONG_BUY",
-      "volume": 9576355.380966859,
-      "liquidity": 217683.49569,
-      "updatedAt": "2026-05-24T15:12:02.296745Z",
-      "timeLeft": 19039550156,
+      "volume": 9576835.29096686,
+      "liquidity": 219212.80454,
+      "updatedAt": "2026-05-24T15:34:13.37489Z",
+      "timeLeft": 19037809898,
       "marketUrl": "https://polymarket.com/event/xi-jinping-out-before-2027/xi-jinping-out-before-2027"
     },
     {
@@ -398,9 +398,9 @@
       "underpricedPrice": 0.0575,
       "signal": "STRONG_BUY",
       "volume": 11198739.647054886,
-      "liquidity": 288698.29111,
-      "updatedAt": "2026-05-24T15:05:33.217867Z",
-      "timeLeft": 77532350156,
+      "liquidity": 289428.76983,
+      "updatedAt": "2026-05-24T15:41:37.403529Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-jon-ossoff-win-the-2028-democratic-presidential-nomination-885"
     },
     {
@@ -415,10 +415,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0515,
       "signal": "STRONG_BUY",
-      "volume": 19384357.4641358,
-      "liquidity": 1081254.39793,
-      "updatedAt": "2026-05-24T15:12:17.490486Z",
-      "timeLeft": 4869950156,
+      "volume": 19384406.1441358,
+      "liquidity": 1081156.44325,
+      "updatedAt": "2026-05-24T15:34:26.19387Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-germany-win-the-2026-fifa-world-cup-467"
     },
     {
@@ -433,10 +433,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0485,
       "signal": "STRONG_BUY",
-      "volume": 8347825.739248221,
-      "liquidity": 387648.03884,
-      "updatedAt": "2026-05-24T15:09:16.942353Z",
-      "timeLeft": 77532350156,
+      "volume": 8347841.492188221,
+      "liquidity": 387639.94516,
+      "updatedAt": "2026-05-24T15:30:16.183361Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-josh-shapiro-win-the-2028-democratic-presidential-nomination-977"
     },
     {
@@ -452,9 +452,9 @@
       "underpricedPrice": 0.0415,
       "signal": "STRONG_BUY",
       "volume": 10649960.996305622,
-      "liquidity": 357912.78719,
-      "updatedAt": "2026-05-24T15:09:02.114476Z",
-      "timeLeft": 77532350156,
+      "liquidity": 357873.95819,
+      "updatedAt": "2026-05-24T15:30:03.442657Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-pete-buttigieg-win-the-2028-democratic-presidential-nomination-687"
     },
     {
@@ -469,10 +469,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0345,
       "signal": "STRONG_BUY",
-      "volume": 21204792.834451642,
-      "liquidity": 1741480.00251,
-      "updatedAt": "2026-05-24T14:59:56.929214Z",
-      "timeLeft": 4869950156,
+      "volume": 21205845.238735642,
+      "liquidity": 1738216.11391,
+      "updatedAt": "2026-05-24T15:34:57.713616Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-netherlands-win-the-2026-fifa-world-cup-739"
     },
     {
@@ -487,10 +487,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0255,
       "signal": "STRONG_BUY",
-      "volume": 11995402.577676896,
-      "liquidity": 502751.44677,
-      "updatedAt": "2026-05-24T15:05:30.630265Z",
-      "timeLeft": 77532350156,
+      "volume": 11995412.837676896,
+      "liquidity": 502742.84271,
+      "updatedAt": "2026-05-24T15:32:46.216232Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-andy-beshear-win-the-2028-democratic-presidential-nomination-832"
     },
     {
@@ -505,10 +505,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0245,
       "signal": "STRONG_BUY",
-      "volume": 21236290.50090547,
-      "liquidity": 3150688.08694,
-      "updatedAt": "2026-05-24T15:11:46.703718Z",
-      "timeLeft": 4869950156,
+      "volume": 21238513.876780473,
+      "liquidity": 3148250.52771,
+      "updatedAt": "2026-05-24T15:33:58.847994Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-norway-win-the-2026-fifa-world-cup-893"
     },
     {
@@ -523,10 +523,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0215,
       "signal": "STRONG_BUY",
-      "volume": 15378266.597121466,
-      "liquidity": 464248.89867,
-      "updatedAt": "2026-05-24T15:08:11.772283Z",
-      "timeLeft": 77532350156,
+      "volume": 15380326.247121466,
+      "liquidity": 463724.21727,
+      "updatedAt": "2026-05-24T15:39:23.201232Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-mark-kelly-win-the-2028-democratic-presidential-nomination-479"
     },
     {
@@ -542,9 +542,9 @@
       "underpricedPrice": 0.0215,
       "signal": "STRONG_BUY",
       "volume": 13679136.81468998,
-      "liquidity": 754395.30959,
-      "updatedAt": "2026-05-24T15:09:49.678224Z",
-      "timeLeft": 77532350156,
+      "liquidity": 752927.02236,
+      "updatedAt": "2026-05-24T15:41:12.491016Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-rahm-emanuel-win-the-2028-democratic-presidential-nomination-299"
     },
     {
@@ -559,10 +559,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0185,
       "signal": "STRONG_BUY",
-      "volume": 18546237.70821726,
-      "liquidity": 3457928.22083,
-      "updatedAt": "2026-05-24T15:08:51.32997Z",
-      "timeLeft": 4869950156,
+      "volume": 18553965.44321626,
+      "liquidity": 3457874.69891,
+      "updatedAt": "2026-05-24T15:39:35.801613Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-belgium-win-the-2026-fifa-world-cup-358"
     },
     {
@@ -577,10 +577,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0185,
       "signal": "STRONG_BUY",
-      "volume": 25866102.312547214,
-      "liquidity": 428997.5038,
-      "updatedAt": "2026-05-24T15:09:07.594215Z",
-      "timeLeft": 4869950156,
+      "volume": 25918647.720414214,
+      "liquidity": 379230.4488,
+      "updatedAt": "2026-05-24T15:39:40.147099Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-japan-win-the-2026-fifa-world-cup-112"
     },
     {
@@ -595,10 +595,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0165,
       "signal": "STRONG_BUY",
-      "volume": 18668342.33868647,
-      "liquidity": 5038173.01196,
-      "updatedAt": "2026-05-24T15:05:44.839699Z",
-      "timeLeft": 4869950156,
+      "volume": 18700765.831248473,
+      "liquidity": 5006262.26767,
+      "updatedAt": "2026-05-24T15:31:12.997651Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-colombia-win-the-2026-fifa-world-cup-734"
     },
     {
@@ -613,10 +613,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0165,
       "signal": "STRONG_BUY",
-      "volume": 14401628.24203403,
-      "liquidity": 481703.87862,
-      "updatedAt": "2026-05-24T15:07:30.265211Z",
-      "timeLeft": 77532350156,
+      "volume": 14401877.225772029,
+      "liquidity": 480053.81478,
+      "updatedAt": "2026-05-24T15:39:15.428915Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-jb-pritzker-win-the-2028-democratic-presidential-nomination-288"
     },
     {
@@ -631,10 +631,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0145,
       "signal": "STRONG_BUY",
-      "volume": 24112411.198980156,
-      "liquidity": 2841199.46869,
-      "updatedAt": "2026-05-24T15:11:04.026775Z",
-      "timeLeft": 4869950156,
+      "volume": 24146282.451026153,
+      "liquidity": 2808307.28618,
+      "updatedAt": "2026-05-24T15:33:31.543729Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-morocco-win-the-2026-fifa-world-cup-464"
     },
     {
@@ -649,10 +649,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0135,
       "signal": "STRONG_BUY",
-      "volume": 25369091.740936268,
-      "liquidity": 1708788.0411,
-      "updatedAt": "2026-05-24T15:08:14.900199Z",
-      "timeLeft": 77532350156,
+      "volume": 25369214.330936268,
+      "liquidity": 1718776.17676,
+      "updatedAt": "2026-05-24T15:29:44.764014Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-michelle-obama-win-the-2028-democratic-presidential-nomination-777"
     },
     {
@@ -667,10 +667,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0125,
       "signal": "STRONG_BUY",
-      "volume": 16116296.175972959,
-      "liquidity": 665894.3547,
-      "updatedAt": "2026-05-24T15:08:36.235581Z",
-      "timeLeft": 77532350156,
+      "volume": 16116602.35230596,
+      "liquidity": 665716.98054,
+      "updatedAt": "2026-05-24T15:32:06.67615Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-wes-moore-win-the-2028-democratic-presidential-nomination-714"
     },
     {
@@ -685,10 +685,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0125,
       "signal": "STRONG_BUY",
-      "volume": 9738487.026735136,
-      "liquidity": 543793.08558,
-      "updatedAt": "2026-05-24T15:08:57.331698Z",
-      "timeLeft": 77532350156,
+      "volume": 9738508.826735137,
+      "liquidity": 543377.83438,
+      "updatedAt": "2026-05-24T15:32:11.253739Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-gretchen-whitmer-win-the-2028-democratic-presidential-nomination-676"
     },
     {
@@ -703,10 +703,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0125,
       "signal": "STRONG_BUY",
-      "volume": 23122207.868414078,
-      "liquidity": 1049487.66821,
-      "updatedAt": "2026-05-24T15:11:28.266377Z",
-      "timeLeft": 77532350156,
+      "volume": 23122297.868414078,
+      "liquidity": 1049575.46821,
+      "updatedAt": "2026-05-24T15:33:40.784319Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-jon-stewart-win-the-2028-democratic-presidential-nomination-518"
     },
     {
@@ -721,10 +721,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0105,
       "signal": "STRONG_BUY",
-      "volume": 37634205.2185645,
-      "liquidity": 5716444.49553,
-      "updatedAt": "2026-05-24T15:08:30.186584Z",
-      "timeLeft": 4869950156,
+      "volume": 37652880.3245645,
+      "liquidity": 5698177.95273,
+      "updatedAt": "2026-05-24T15:29:50.015977Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-usa-win-the-2026-fifa-world-cup-467"
     },
     {
@@ -739,10 +739,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0105,
       "signal": "STRONG_BUY",
-      "volume": 20327995.86464653,
-      "liquidity": 6299549.06597,
-      "updatedAt": "2026-05-24T15:05:42.066314Z",
-      "timeLeft": 4869950156,
+      "volume": 20328160.19814653,
+      "liquidity": 6299442.67686,
+      "updatedAt": "2026-05-24T15:31:11.333974Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-uruguay-win-the-2026-fifa-world-cup-932"
     },
     {
@@ -759,8 +759,8 @@
       "signal": "STRONG_BUY",
       "volume": 22375039.681949615,
       "liquidity": 4100888.00319,
-      "updatedAt": "2026-05-24T15:12:09.825746Z",
-      "timeLeft": 4869950156,
+      "updatedAt": "2026-05-24T15:34:18.508884Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-mexico-win-the-2026-fifa-world-cup-529"
     },
     {
@@ -776,9 +776,9 @@
       "underpricedPrice": 0.0105,
       "signal": "STRONG_BUY",
       "volume": 20475302.766635247,
-      "liquidity": 764036.03867,
-      "updatedAt": "2026-05-24T15:09:02.047794Z",
-      "timeLeft": 77532350156,
+      "liquidity": 764791.22864,
+      "updatedAt": "2026-05-24T15:39:38.48735Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-stephen-a-smith-win-the-2028-democratic-presidential-nomination-914"
     },
     {
@@ -793,10 +793,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0095,
       "signal": "STRONG_BUY",
-      "volume": 20927889.393880412,
-      "liquidity": 1524780.46992,
-      "updatedAt": "2026-05-24T15:07:30.991259Z",
-      "timeLeft": 4869950156,
+      "volume": 20929255.007764418,
+      "liquidity": 1523609.79025,
+      "updatedAt": "2026-05-24T15:40:31.645768Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-switzerland-win-the-2026-fifa-world-cup"
     },
     {
@@ -811,10 +811,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0095,
       "signal": "STRONG_BUY",
-      "volume": 21853561.229380447,
-      "liquidity": 1776812.91412,
-      "updatedAt": "2026-05-24T15:08:30.12581Z",
-      "timeLeft": 77532350156,
+      "volume": 21855353.876377452,
+      "liquidity": 1775924.9026,
+      "updatedAt": "2026-05-24T15:29:49.957195Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-mark-cuban-win-the-2028-democratic-presidential-nomination-329"
     },
     {
@@ -829,10 +829,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0095,
       "signal": "STRONG_BUY",
-      "volume": 24111675.267872907,
-      "liquidity": 1655144.66579,
-      "updatedAt": "2026-05-24T15:11:53.295351Z",
-      "timeLeft": 77532350156,
+      "volume": 24111929.479423914,
+      "liquidity": 1655265.34835,
+      "updatedAt": "2026-05-24T15:34:04.769164Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-corey-booker-win-the-2028-democratic-presidential-nomination-125"
     },
     {
@@ -847,10 +847,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0095,
       "signal": "STRONG_BUY",
-      "volume": 30344635.251628455,
-      "liquidity": 1485336.10351,
-      "updatedAt": "2026-05-24T15:08:43.840141Z",
-      "timeLeft": 77532350156,
+      "volume": 30345200.999626458,
+      "liquidity": 1484175.75293,
+      "updatedAt": "2026-05-24T15:29:55.702398Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-roy-cooper-win-the-2028-democratic-presidential-nomination-286"
     },
     {
@@ -865,10 +865,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0085,
       "signal": "STRONG_BUY",
-      "volume": 24876337.43542682,
-      "liquidity": 3928544.09858,
-      "updatedAt": "2026-05-24T15:05:34.234144Z",
-      "timeLeft": 4869950156,
+      "volume": 24915505.32930182,
+      "liquidity": 3889924.8428,
+      "updatedAt": "2026-05-24T15:38:47.568392Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-croatia-win-the-2026-fifa-world-cup"
     },
     {
@@ -883,10 +883,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0085,
       "signal": "STRONG_BUY",
-      "volume": 19849584.85169322,
-      "liquidity": 1453282.50499,
-      "updatedAt": "2026-05-24T15:06:47.491453Z",
-      "timeLeft": 77532350156,
+      "volume": 19850875.744901218,
+      "liquidity": 1457704.47018,
+      "updatedAt": "2026-05-24T15:39:06.466096Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-john-fetterman-win-the-2028-democratic-presidential-nomination-941"
     },
     {
@@ -901,10 +901,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0075,
       "signal": "STRONG_BUY",
-      "volume": 25637627.946136773,
-      "liquidity": 4979642.49008,
-      "updatedAt": "2026-05-24T15:09:28.848067Z",
-      "timeLeft": 4869950156,
+      "volume": 25668951.15542077,
+      "liquidity": 4948600.85528,
+      "updatedAt": "2026-05-24T15:32:19.032476Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-ecuador-win-the-2026-fifa-world-cup-986"
     },
     {
@@ -919,10 +919,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0075,
       "signal": "STRONG_BUY",
-      "volume": 29166742.502378244,
-      "liquidity": 1590436.97661,
-      "updatedAt": "2026-05-24T15:08:56.198569Z",
-      "timeLeft": 77532350156,
+      "volume": 29167236.64637724,
+      "liquidity": 1590504.88128,
+      "updatedAt": "2026-05-24T15:29:59.901956Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-raphael-warnock-win-the-2028-democratic-presidential-nomination-914"
     },
     {
@@ -937,10 +937,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0075,
       "signal": "STRONG_BUY",
-      "volume": 32543557.127852894,
-      "liquidity": 2110146.71674,
-      "updatedAt": "2026-05-24T15:05:53.86696Z",
-      "timeLeft": 77532350156,
+      "volume": 32543572.170993898,
+      "liquidity": 2115684.67449,
+      "updatedAt": "2026-05-24T15:40:07.975493Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-gina-raimondo-win-the-2028-democratic-presidential-nomination-676"
     },
     {
@@ -955,10 +955,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0075,
       "signal": "STRONG_BUY",
-      "volume": 36417114.929113194,
-      "liquidity": 2043813.59755,
-      "updatedAt": "2026-05-24T15:12:18.21521Z",
-      "timeLeft": 77532350156,
+      "volume": 36417790.30254019,
+      "liquidity": 2042776.43716,
+      "updatedAt": "2026-05-24T15:34:26.700402Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-zohran-mamdani-win-the-2028-democratic-presidential-nomination-445"
     },
     {
@@ -973,10 +973,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0075,
       "signal": "STRONG_BUY",
-      "volume": 25492023.453491114,
-      "liquidity": 553791.42507,
-      "updatedAt": "2026-05-24T15:06:34.316642Z",
-      "timeLeft": 77532350156,
+      "volume": 25492039.578918114,
+      "liquidity": 555569.22189,
+      "updatedAt": "2026-05-24T15:39:04.132405Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-jared-polis-win-the-2028-democratic-presidential-nomination-837"
     },
     {
@@ -991,10 +991,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0075,
       "signal": "STRONG_BUY",
-      "volume": 30046239.450517703,
-      "liquidity": 1876810.40324,
-      "updatedAt": "2026-05-24T15:11:22.925176Z",
-      "timeLeft": 77532350156,
+      "volume": 30046586.515088707,
+      "liquidity": 1877016.43056,
+      "updatedAt": "2026-05-24T15:33:38.872072Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-barack-obama-win-the-2028-democratic-presidential-nomination-265"
     },
     {
@@ -1009,10 +1009,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0075,
       "signal": "STRONG_BUY",
-      "volume": 42032868.812789686,
-      "liquidity": 2286768.47594,
-      "updatedAt": "2026-05-24T15:05:29.688609Z",
-      "timeLeft": 77532350156,
+      "volume": 42032995.18236069,
+      "liquidity": 2286747.80335,
+      "updatedAt": "2026-05-24T15:31:05.025005Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-hillary-clinton-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1027,10 +1027,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0075,
       "signal": "STRONG_BUY",
-      "volume": 36278650.30540479,
-      "liquidity": 1291645.72122,
-      "updatedAt": "2026-05-24T15:07:05.46701Z",
-      "timeLeft": 77532350156,
+      "volume": 36279347.6989738,
+      "liquidity": 1291700.4791,
+      "updatedAt": "2026-05-24T15:33:12.622959Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-liz-cheney-win-the-2028-democratic-presidential-nomination-551"
     },
     {
@@ -1045,10 +1045,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0075,
       "signal": "STRONG_BUY",
-      "volume": 49637633.0405825,
-      "liquidity": 1453564.70024,
-      "updatedAt": "2026-05-24T15:07:57.455731Z",
-      "timeLeft": 77532350156,
+      "volume": 49639264.209149495,
+      "liquidity": 1453543.42498,
+      "updatedAt": "2026-05-24T15:39:21.566432Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-bernie-sanders-win-the-2028-democratic-presidential-nomination-879"
     },
     {
@@ -1063,10 +1063,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 20550784.84224852,
-      "liquidity": 4920953.66637,
-      "updatedAt": "2026-05-24T15:04:59.044439Z",
-      "timeLeft": 4869950156,
+      "volume": 20551440.188914515,
+      "liquidity": 4920591.2202,
+      "updatedAt": "2026-05-24T15:39:38.740663Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-senegal-win-the-2026-fifa-world-cup"
     },
     {
@@ -1081,10 +1081,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 13779920.334312899,
-      "liquidity": 4143506.60944,
-      "updatedAt": "2026-05-24T15:06:10.065867Z",
-      "timeLeft": 4869950156,
+      "volume": 13860513.9691929,
+      "liquidity": 4063624.31517,
+      "updatedAt": "2026-05-24T15:40:13.470041Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-turkiye-win-the-2026-fifa-world-cup"
     },
     {
@@ -1099,10 +1099,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 40620710.71830543,
-      "liquidity": 1957611.64117,
-      "updatedAt": "2026-05-24T15:11:50.498126Z",
-      "timeLeft": 77532350156,
+      "volume": 40620715.35013843,
+      "liquidity": 1957379.59977,
+      "updatedAt": "2026-05-24T15:34:02.080776Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-tim-walz-win-the-2028-democratic-presidential-nomination-475"
     },
     {
@@ -1117,10 +1117,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 39653128.50779862,
-      "liquidity": 2480962.76806,
-      "updatedAt": "2026-05-24T15:07:19.401637Z",
-      "timeLeft": 77532350156,
+      "volume": 39653251.75696362,
+      "liquidity": 2485350.49816,
+      "updatedAt": "2026-05-24T15:42:15.017474Z",
+      "timeLeft": 77530609898,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-phil-murphy-win-the-2028-democratic-presidential-nomination-611"
     },
     {
@@ -1135,10 +1135,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0055,
       "signal": "STRONG_BUY",
-      "volume": 27072452.728522837,
-      "liquidity": 2631864.0257,
-      "updatedAt": "2026-05-24T15:07:19.602478Z",
-      "timeLeft": 4869950156,
+      "volume": 27223098.59852284,
+      "liquidity": 2482477.42961,
+      "updatedAt": "2026-05-24T15:39:12.710726Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-austria-win-the-2026-fifa-world-cup"
     },
     {
@@ -1153,10 +1153,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0055,
       "signal": "STRONG_BUY",
-      "volume": 14122501.090653993,
-      "liquidity": 7656140.51153,
-      "updatedAt": "2026-05-24T15:09:26.341893Z",
-      "timeLeft": 4869950156,
+      "volume": 14172584.742253995,
+      "liquidity": 7606471.28844,
+      "updatedAt": "2026-05-24T15:30:24.255977Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-sweden-win-the-2026-fifa-world-cup"
     },
     {
@@ -1171,10 +1171,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0045,
       "signal": "STRONG_BUY",
-      "volume": 17889422.33854072,
-      "liquidity": 1088390.78505,
-      "updatedAt": "2026-05-24T15:11:58.408333Z",
-      "timeLeft": 3228350156,
+      "volume": 17890328.91104072,
+      "liquidity": 1087954.07298,
+      "updatedAt": "2026-05-24T15:34:09.148706Z",
+      "timeLeft": 3226609899,
       "marketUrl": "https://polymarket.com/event/2026-nba-champion/will-the-cleveland-cavaliers-win-the-2026-nba-finals"
     },
     {
@@ -1189,10 +1189,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.004,
       "signal": "STRONG_BUY",
-      "volume": 14865791.825838031,
-      "liquidity": 46873.31413,
-      "updatedAt": "2026-05-24T15:06:38.673074Z",
-      "timeLeft": 549950156,
+      "volume": 14866343.32629203,
+      "liquidity": 47833.75616,
+      "updatedAt": "2026-05-24T15:41:44.778082Z",
+      "timeLeft": 548209899,
       "marketUrl": "https://polymarket.com/event/gta-vi-released-before-june-2026/gta-vi-released-before-june-2026"
     },
     {
@@ -1207,10 +1207,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
-      "volume": 26720206.961281635,
-      "liquidity": 8425716.00275,
-      "updatedAt": "2026-05-24T15:10:48.069894Z",
-      "timeLeft": 4869950156,
+      "volume": 26721400.843613636,
+      "liquidity": 8425792.48778,
+      "updatedAt": "2026-05-24T15:33:25.413454Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-canada-win-the-2026-fifa-world-cup-755"
     },
     {
@@ -1225,10 +1225,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
-      "volume": 27736628.699698463,
-      "liquidity": 6011086.19806,
-      "updatedAt": "2026-05-24T15:04:56.442503Z",
-      "timeLeft": 4869950156,
+      "volume": 27737204.458364464,
+      "liquidity": 6010839.73534,
+      "updatedAt": "2026-05-24T15:40:40.712972Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-south-korea-win-the-2026-fifa-world-cup-485"
     },
     {
@@ -1243,10 +1243,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
-      "volume": 26341539.53350726,
-      "liquidity": 6665482.82733,
-      "updatedAt": "2026-05-24T15:07:50.093517Z",
-      "timeLeft": 4869950156,
+      "volume": 26393513.39350726,
+      "liquidity": 6614201.52477,
+      "updatedAt": "2026-05-24T15:40:27.974314Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-ivory-coast-win-the-2026-fifa-world-cup"
     },
     {
@@ -1261,10 +1261,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
-      "volume": 26905335.37387791,
-      "liquidity": 7934801.55678,
-      "updatedAt": "2026-05-24T15:11:51.396756Z",
-      "timeLeft": 4869950156,
+      "volume": 26905387.91121091,
+      "liquidity": 7934798.05789,
+      "updatedAt": "2026-05-24T15:34:02.743346Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-egypt-win-the-2026-fifa-world-cup"
     },
     {
@@ -1279,10 +1279,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 23166889.860598743,
-      "liquidity": 7809637.6281,
-      "updatedAt": "2026-05-24T15:08:08.209597Z",
-      "timeLeft": 4869950156,
+      "volume": 23167807.75059874,
+      "liquidity": 7809280.08639,
+      "updatedAt": "2026-05-24T15:39:24.689419Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-paraguay-win-the-2026-fifa-world-cup-967"
     },
     {
@@ -1297,10 +1297,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 21826142.03197908,
-      "liquidity": 9458762.63268,
-      "updatedAt": "2026-05-24T15:11:36.432315Z",
-      "timeLeft": 4869950156,
+      "volume": 21826263.27197908,
+      "liquidity": 9458793.5283,
+      "updatedAt": "2026-05-24T15:33:49.011761Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-ghana-win-the-2026-fifa-world-cup"
     },
     {
@@ -1315,10 +1315,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 23362303.14982476,
-      "liquidity": 7993526.85145,
-      "updatedAt": "2026-05-24T15:08:29.98129Z",
-      "timeLeft": 4869950156,
+      "volume": 23362701.041324764,
+      "liquidity": 7993325.1154,
+      "updatedAt": "2026-05-24T15:32:05.324955Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-scotland-win-the-2026-fifa-world-cup"
     },
     {
@@ -1333,10 +1333,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 12188354.074174732,
-      "liquidity": 9569808.08659,
-      "updatedAt": "2026-05-24T15:08:12.070884Z",
-      "timeLeft": 4869950156,
+      "volume": 12188362.985674731,
+      "liquidity": 9569810.44798,
+      "updatedAt": "2026-05-24T15:29:43.668971Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-bosnia-herzegovina-win-the-2026-fifa-world-cup"
     },
     {
@@ -1351,10 +1351,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 10850872.198417531,
-      "liquidity": 7239305.9063,
-      "updatedAt": "2026-05-24T15:07:52.640659Z",
-      "timeLeft": 4869950156,
+      "volume": 10851739.086417532,
+      "liquidity": 7238920.27077,
+      "updatedAt": "2026-05-24T15:42:28.817177Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-czechia-win-the-2026-fifa-world-cup"
     },
     {
@@ -1369,10 +1369,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0015,
       "signal": "STRONG_BUY",
-      "volume": 25612657.369685873,
-      "liquidity": 9448228.35018,
-      "updatedAt": "2026-05-24T15:08:54.237593Z",
-      "timeLeft": 4869950156,
+      "volume": 25614084.56868587,
+      "liquidity": 9447885.05526,
+      "updatedAt": "2026-05-24T15:29:59.010572Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-tunisia-win-the-2026-fifa-world-cup-165"
     },
     {
@@ -1387,10 +1387,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0015,
       "signal": "STRONG_BUY",
-      "volume": 27568391.07556747,
-      "liquidity": 8418295.60745,
-      "updatedAt": "2026-05-24T15:12:19.52381Z",
-      "timeLeft": 4869950156,
+      "volume": 27569335.350567464,
+      "liquidity": 8418366.35356,
+      "updatedAt": "2026-05-24T15:34:28.220369Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-australia-win-the-2026-fifa-world-cup-816"
     },
     {
@@ -1405,10 +1405,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0015,
       "signal": "STRONG_BUY",
-      "volume": 29043699.908790115,
-      "liquidity": 6353454.55984,
-      "updatedAt": "2026-05-24T15:09:14.015624Z",
-      "timeLeft": 4869950156,
+      "volume": 29045636.592790104,
+      "liquidity": 6352386.18545,
+      "updatedAt": "2026-05-24T15:39:41.692357Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-iran-win-the-2026-fifa-world-cup-788"
     },
     {
@@ -1423,10 +1423,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0015,
       "signal": "STRONG_BUY",
-      "volume": 24998873.968214933,
-      "liquidity": 8879958.3413,
-      "updatedAt": "2026-05-24T15:08:16.895259Z",
-      "timeLeft": 4869950156,
+      "volume": 25000887.67521495,
+      "liquidity": 8878858.06346,
+      "updatedAt": "2026-05-24T15:39:26.576554Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-algeria-win-the-2026-fifa-world-cup"
     },
     {
@@ -1442,9 +1442,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 34901763.19064517,
-      "liquidity": 9044702.98669,
-      "updatedAt": "2026-05-24T15:07:34.211069Z",
-      "timeLeft": 4869950156,
+      "liquidity": 9047640.31669,
+      "updatedAt": "2026-05-24T15:42:21.475175Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-new-zealand-win-the-2026-fifa-world-cup-635"
     },
     {
@@ -1460,9 +1460,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 44633768.891417585,
-      "liquidity": 8208696.87219,
-      "updatedAt": "2026-05-24T15:06:21.620746Z",
-      "timeLeft": 4869950156,
+      "liquidity": 8206651.86019,
+      "updatedAt": "2026-05-24T15:40:16.820125Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-uzbekistan-win-the-2026-fifa-world-cup-773"
     },
     {
@@ -1478,9 +1478,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 30250958.971882783,
-      "liquidity": 9406780.23752,
-      "updatedAt": "2026-05-24T15:06:37.98232Z",
-      "timeLeft": 4869950156,
+      "liquidity": 9406979.47952,
+      "updatedAt": "2026-05-24T15:41:44.451352Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-jordan-win-the-2026-fifa-world-cup-233"
     },
     {
@@ -1496,9 +1496,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 30921404.507894266,
-      "liquidity": 8731793.59209,
-      "updatedAt": "2026-05-24T15:05:42.858263Z",
-      "timeLeft": 4869950156,
+      "liquidity": 8732796.03909,
+      "updatedAt": "2026-05-24T15:38:49.737367Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-south-africa-win-the-2026-fifa-world-cup"
     },
     {
@@ -1514,9 +1514,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 27156083.43516404,
-      "liquidity": 9657681.58765,
-      "updatedAt": "2026-05-24T15:08:15.323229Z",
-      "timeLeft": 4869950156,
+      "liquidity": 9658668.61465,
+      "updatedAt": "2026-05-24T15:29:44.961956Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-cape-verde-win-the-2026-fifa-world-cup"
     },
     {
@@ -1532,9 +1532,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 28934334.516331855,
-      "liquidity": 9739188.95355,
-      "updatedAt": "2026-05-24T15:07:23.067293Z",
-      "timeLeft": 4869950156,
+      "liquidity": 9739189.51855,
+      "updatedAt": "2026-05-24T15:31:47.236588Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-qatar-win-the-2026-fifa-world-cup"
     },
     {
@@ -1550,9 +1550,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 31843951.953883726,
-      "liquidity": 8930849.30344,
-      "updatedAt": "2026-05-24T15:05:16.667667Z",
-      "timeLeft": 4869950156,
+      "liquidity": 8933862.58744,
+      "updatedAt": "2026-05-24T15:41:26.950434Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-saudi-arabia-win-the-2026-fifa-world-cup"
     },
     {
@@ -1568,9 +1568,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 19960068.80882009,
-      "liquidity": 9668213.21478,
-      "updatedAt": "2026-05-24T15:05:18.066236Z",
-      "timeLeft": 4869950156,
+      "liquidity": 9668207.33678,
+      "updatedAt": "2026-05-24T15:41:28.663098Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-haiti-win-the-2026-fifa-world-cup"
     },
     {
@@ -1586,9 +1586,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 40093666.76691622,
-      "liquidity": 9041380.76942,
-      "updatedAt": "2026-05-24T15:09:42.572188Z",
-      "timeLeft": 4869950156,
+      "liquidity": 9042390.05942,
+      "updatedAt": "2026-05-24T15:30:36.503805Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-curaao-win-the-2026-fifa-world-cup"
     },
     {
@@ -1604,9 +1604,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 17372396.59575688,
-      "liquidity": 9325627.14638,
-      "updatedAt": "2026-05-24T15:06:49.275513Z",
-      "timeLeft": 4869950156,
+      "liquidity": 9325630.68638,
+      "updatedAt": "2026-05-24T15:41:47.611902Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-team-z-win-the-2026-fifa-world-cup-316"
     },
     {
@@ -1622,9 +1622,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 20336286.22078797,
-      "liquidity": 6451272.57655,
-      "updatedAt": "2026-05-24T15:08:51.076715Z",
-      "timeLeft": 4869950156,
+      "liquidity": 6451278.06155,
+      "updatedAt": "2026-05-24T15:32:10.000982Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-congo-dr-win-the-2026-fifa-world-cup"
     },
     {
@@ -1640,9 +1640,9 @@
       "underpricedPrice": 0.0005,
       "signal": "STRONG_BUY",
       "volume": 16283299.748710927,
-      "liquidity": 9860551.58068,
-      "updatedAt": "2026-05-24T15:07:19.03359Z",
-      "timeLeft": 4869950156,
+      "liquidity": 9860560.55558,
+      "updatedAt": "2026-05-24T15:31:46.406329Z",
+      "timeLeft": 4868209898,
       "marketUrl": "https://polymarket.com/event/2026-fifa-world-cup-winner-595/will-iraq-win-the-2026-fifa-world-cup"
     }
   ]
