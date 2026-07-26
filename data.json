@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T14:45:09.474Z",
+  "generatedAt": "2026-07-26T15:46:30.673Z",
   "totalCount": 88,
   "filters": {
     "minSpread": 0.015,
@@ -19,10 +19,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.2025,
       "signal": "STRONG_BUY",
-      "volume": 14891897.895214126,
-      "liquidity": 499249.94974,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 14891993.895214126,
+      "liquidity": 486484.12586,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-jd-vance-win-the-2028-us-presidential-election"
     },
     {
@@ -37,10 +37,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.1965,
       "signal": "STRONG_BUY",
-      "volume": 26571718.17321629,
-      "liquidity": 381971.12858,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 26571742.91011829,
+      "liquidity": 360862.13558,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-gavin-newsom-win-the-2028-democratic-presidential-nomination-568"
     },
     {
@@ -56,27 +56,27 @@
       "underpricedPrice": 0.1575,
       "signal": "STRONG_BUY",
       "volume": 12315636.520974876,
-      "liquidity": 286466.72802,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 277270.10473,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-jon-ossoff-win-the-2028-democratic-presidential-nomination-885"
     },
     {
       "id": "559653",
       "question": "Will Alexandria Ocasio-Cortez win the 2028 Democratic presidential nomination?",
       "category": "Elections",
-      "yes": 0.1375,
-      "no": 0.8625,
-      "yesSpread": 0.3625,
-      "noSpread": 0.36250000000000004,
-      "maxSpread": 0.36250000000000004,
+      "yes": 0.14,
+      "no": 0.86,
+      "yesSpread": 0.36,
+      "noSpread": 0.36,
+      "maxSpread": 0.36,
       "underpricedSide": "YES",
-      "underpricedPrice": 0.1375,
+      "underpricedPrice": 0.14,
       "signal": "STRONG_BUY",
-      "volume": 14028059.17004213,
-      "liquidity": 323076.8479,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 14032148.75805813,
+      "liquidity": 305261.46781,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-alexandria-ocasio-cortez-win-the-2028-democratic-presidential-nomination-653"
     },
     {
@@ -92,9 +92,9 @@
       "underpricedPrice": 0.1255,
       "signal": "STRONG_BUY",
       "volume": 17531351.294107046,
-      "liquidity": 424769.19414,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 411357.51409,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-gavin-newsom-win-the-2028-us-presidential-election"
     },
     {
@@ -110,9 +110,9 @@
       "underpricedPrice": 0.1245,
       "signal": "STRONG_BUY",
       "volume": 11394217.156956058,
-      "liquidity": 426798.43986,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 421732.89818,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-marco-rubio-win-the-2028-us-presidential-election"
     },
     {
@@ -127,10 +127,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0885,
       "signal": "STRONG_BUY",
-      "volume": 5241851.444381967,
-      "liquidity": 447908.98991,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 5241954.200336967,
+      "liquidity": 439112.98984,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-jon-ossoff-win-the-2028-us-presidential-election"
     },
     {
@@ -145,10 +145,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.085,
       "signal": "STRONG_BUY",
-      "volume": 17986017.39164501,
-      "liquidity": 707623.1106,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 13598090526,
+      "volume": 17986023.09164501,
+      "liquidity": 710556.5609,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 13594409327,
       "marketUrl": "https://polymarket.com/event/putin-out-before-2027/putin-out-before-2027-346"
     },
     {
@@ -163,10 +163,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.085,
       "signal": "STRONG_BUY",
-      "volume": 12628817.37900086,
-      "liquidity": 364389.34759,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 12628827.44900086,
+      "liquidity": 363963.68331,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-alexandria-ocasio-cortez-win-the-2028-us-presidential-election"
     },
     {
@@ -181,10 +181,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.083,
       "signal": "STRONG_BUY",
-      "volume": 12754305.263832923,
-      "liquidity": 319938.73572,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 12754330.573832925,
+      "liquidity": 327900.22922,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-kamala-harris-win-the-2028-democratic-presidential-nomination-641"
     },
     {
@@ -199,10 +199,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0515,
       "signal": "STRONG_BUY",
-      "volume": 11671370.088469565,
-      "liquidity": 388070.84681,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 11671392.358469566,
+      "liquidity": 386850.0326,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-pete-buttigieg-win-the-2028-democratic-presidential-nomination-687"
     },
     {
@@ -217,10 +217,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.051,
       "signal": "STRONG_BUY",
-      "volume": 9371223.297301166,
-      "liquidity": 367350.04714,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 9371648.338838166,
+      "liquidity": 372895.31347,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-josh-shapiro-win-the-2028-democratic-presidential-nomination-977"
     },
     {
@@ -235,10 +235,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0485,
       "signal": "STRONG_BUY",
-      "volume": 8503058.30756103,
-      "liquidity": 325450.32398,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 8503098.467561033,
+      "liquidity": 323209.48603,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-kamala-harris-win-the-2028-us-presidential-election"
     },
     {
@@ -254,9 +254,9 @@
       "underpricedPrice": 0.0475,
       "signal": "STRONG_BUY",
       "volume": 11543551.108113,
-      "liquidity": 219707.48077,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 13598090526,
+      "liquidity": 219916.52758,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 13594409328,
       "marketUrl": "https://polymarket.com/event/xi-jinping-out-before-2027/xi-jinping-out-before-2027"
     },
     {
@@ -271,10 +271,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0255,
       "signal": "STRONG_BUY",
-      "volume": 6979869.295127986,
-      "liquidity": 438622.16149,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 6979900.665127987,
+      "liquidity": 433865.43272,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-josh-shapiro-win-the-2028-us-presidential-election"
     },
     {
@@ -289,10 +289,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0235,
       "signal": "STRONG_BUY",
-      "volume": 12823991.285112917,
-      "liquidity": 504346.51922,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 12824024.595112918,
+      "liquidity": 504382.05282,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-andy-beshear-win-the-2028-democratic-presidential-nomination-832"
     },
     {
@@ -307,10 +307,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0235,
       "signal": "STRONG_BUY",
-      "volume": 14329571.351644928,
-      "liquidity": 748425.11405,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 14329580.921644928,
+      "liquidity": 749849.37065,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-rahm-emanuel-win-the-2028-democratic-presidential-nomination-299"
     },
     {
@@ -325,10 +325,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0235,
       "signal": "STRONG_BUY",
-      "volume": 7802406.519799458,
-      "liquidity": 506023.44041,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 7802439.539233458,
+      "liquidity": 502397.67472,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-pete-buttigieg-win-the-2028-us-presidential-election"
     },
     {
@@ -344,9 +344,9 @@
       "underpricedPrice": 0.0225,
       "signal": "STRONG_BUY",
       "volume": 24545487.703421302,
-      "liquidity": 311788.00717,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 312988.1139,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-jon-stewart-win-the-2028-democratic-presidential-nomination-518"
     },
     {
@@ -361,10 +361,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0215,
       "signal": "STRONG_BUY",
-      "volume": 16802961.875859413,
-      "liquidity": 423540.24226,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 16802979.601001415,
+      "liquidity": 422195.01049,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-mark-kelly-win-the-2028-democratic-presidential-nomination-479"
     },
     {
@@ -380,9 +380,9 @@
       "underpricedPrice": 0.0205,
       "signal": "STRONG_BUY",
       "volume": 11071572.808388537,
-      "liquidity": 235250.57801,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 237455.10385,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-ro-khanna-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -397,10 +397,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0175,
       "signal": "STRONG_BUY",
-      "volume": 9087607.125357276,
-      "liquidity": 709345.51236,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 9087620.126357276,
+      "liquidity": 704647.08143,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-donald-trump-win-the-2028-us-presidential-election"
     },
     {
@@ -415,10 +415,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0155,
       "signal": "STRONG_BUY",
-      "volume": 11831964.424303992,
-      "liquidity": 231314.35297,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 11831965.46430399,
+      "liquidity": 230854.39766,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-gretchen-whitmer-win-the-2028-democratic-presidential-nomination-676"
     },
     {
@@ -433,10 +433,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0155,
       "signal": "STRONG_BUY",
-      "volume": 12133563.514729157,
-      "liquidity": 293963.85688,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 12133612.162528157,
+      "liquidity": 293019.43924,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-ron-desantis-win-the-2028-us-presidential-election"
     },
     {
@@ -451,10 +451,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0155,
       "signal": "STRONG_BUY",
-      "volume": 8091667.753805018,
-      "liquidity": 183867.5148,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 8091756.590804018,
+      "liquidity": 181798.30367,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-dwayne-the-rock-johnson-win-the-2028-us-presidential-election"
     },
     {
@@ -470,9 +470,9 @@
       "underpricedPrice": 0.0145,
       "signal": "STRONG_BUY",
       "volume": 13635640.316195201,
-      "liquidity": 359559.14079,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 360590.7834,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-tucker-carlson-win-the-2028-us-presidential-election"
     },
     {
@@ -488,9 +488,9 @@
       "underpricedPrice": 0.0115,
       "signal": "STRONG_BUY",
       "volume": 17007743.93268997,
-      "liquidity": 661258.47274,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 662106.03063,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-wes-moore-win-the-2028-democratic-presidential-nomination-714"
     },
     {
@@ -506,9 +506,9 @@
       "underpricedPrice": 0.0115,
       "signal": "STRONG_BUY",
       "volume": 12313309.768406052,
-      "liquidity": 888984.14211,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 887892.05834,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-dwayne-the-rock-johnson-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -523,10 +523,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0115,
       "signal": "STRONG_BUY",
-      "volume": 18807927.859378196,
-      "liquidity": 367455.34161,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 18807954.003378198,
+      "liquidity": 367274.1547,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-andy-beshear-win-the-2028-us-presidential-election"
     },
     {
@@ -541,10 +541,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0115,
       "signal": "STRONG_BUY",
-      "volume": 10525023.814723156,
-      "liquidity": 237802.31718,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 10525025.795813156,
+      "liquidity": 230520.1866,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-ro-khanna-win-the-2028-us-presidential-election"
     },
     {
@@ -560,9 +560,9 @@
       "underpricedPrice": 0.0105,
       "signal": "STRONG_BUY",
       "volume": 10176981.417578047,
-      "liquidity": 322014.88483,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 321826.84258,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-james-talarico-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -577,10 +577,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0105,
       "signal": "STRONG_BUY",
-      "volume": 13460235.921784785,
-      "liquidity": 942036.5316,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 13460312.337484786,
+      "liquidity": 941252.27478,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-donald-trump-jr-win-the-2028-us-presidential-election"
     },
     {
@@ -595,10 +595,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0105,
       "signal": "STRONG_BUY",
-      "volume": 7673845.539586942,
-      "liquidity": 570185.93455,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 7673954.094686941,
+      "liquidity": 562731.7873,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-thomas-massie-win-the-2028-us-presidential-election"
     },
     {
@@ -613,10 +613,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0095,
       "signal": "STRONG_BUY",
-      "volume": 15122180.83201282,
-      "liquidity": 539887.74844,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 15122458.267456818,
+      "liquidity": 540647.69506,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-jb-pritzker-win-the-2028-democratic-presidential-nomination-288"
     },
     {
@@ -632,9 +632,9 @@
       "underpricedPrice": 0.0095,
       "signal": "STRONG_BUY",
       "volume": 26000787.369501326,
-      "liquidity": 2168646.9953,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 2168170.25991,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-michelle-obama-win-the-2028-democratic-presidential-nomination-777"
     },
     {
@@ -649,10 +649,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0095,
       "signal": "STRONG_BUY",
-      "volume": 15276604.018724801,
-      "liquidity": 261035.29426,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 15276646.943390803,
+      "liquidity": 257195.35594,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-gretchen-whitmer-win-the-2028-us-presidential-election"
     },
     {
@@ -668,9 +668,9 @@
       "underpricedPrice": 0.0085,
       "signal": "STRONG_BUY",
       "volume": 50115173.66804439,
-      "liquidity": 718627.62151,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 717786.7317,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-chelsea-clinton-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -685,10 +685,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0085,
       "signal": "STRONG_BUY",
-      "volume": 11908966.51870266,
-      "liquidity": 263621.36777,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 11909051.035202658,
+      "liquidity": 263385.5766,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-wes-moore-win-the-2028-us-presidential-election"
     },
     {
@@ -703,10 +703,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0085,
       "signal": "STRONG_BUY",
-      "volume": 35098438.3364416,
-      "liquidity": 2218473.47127,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 35098472.34844159,
+      "liquidity": 2216574.41777,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-greg-abbott-win-the-2028-us-presidential-election"
     },
     {
@@ -721,10 +721,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 21458590.857780147,
-      "liquidity": 1298301.50809,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 21458608.087780148,
+      "liquidity": 1298096.20679,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-stephen-a-smith-win-the-2028-democratic-presidential-nomination-914"
     },
     {
@@ -739,10 +739,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 31304432.63684741,
-      "liquidity": 1714583.02763,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 31304436.72918041,
+      "liquidity": 1712874.25212,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-roy-cooper-win-the-2028-democratic-presidential-nomination-286"
     },
     {
@@ -757,10 +757,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 52527675.92026228,
-      "liquidity": 913463.67124,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 52527693.791428275,
+      "liquidity": 916819.50285,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-bernie-sanders-win-the-2028-democratic-presidential-nomination-879"
     },
     {
@@ -775,10 +775,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 36043107.75263158,
-      "liquidity": 2345027.80294,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 36043107.812631585,
+      "liquidity": 2342505.09743,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-jasmine-crockett-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -793,10 +793,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 26342951.494680196,
-      "liquidity": 2063284.78806,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 26343867.721846197,
+      "liquidity": 2062967.97662,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-glenn-youngkin-win-the-2028-us-presidential-election"
     },
     {
@@ -811,10 +811,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 33095475.351583835,
-      "liquidity": 614164.06688,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 33095478.571583837,
+      "liquidity": 614128.72889,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-tulsi-gabbard-win-the-2028-us-presidential-election"
     },
     {
@@ -829,10 +829,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 25799876.665759016,
-      "liquidity": 1665692.11232,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 25799877.135759015,
+      "liquidity": 1664833.57461,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-elon-musk-win-the-2028-us-presidential-election"
     },
     {
@@ -847,10 +847,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 18556111.41982192,
-      "liquidity": 1476277.951,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 18556793.08632092,
+      "liquidity": 1471417.17612,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-michelle-obama-win-the-2028-us-presidential-election"
     },
     {
@@ -865,10 +865,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 10509606.713248044,
-      "liquidity": 975634.95621,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 10509681.336247046,
+      "liquidity": 975719.9204,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-jamie-dimon-win-the-2028-us-presidential-election"
     },
     {
@@ -883,10 +883,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0065,
       "signal": "STRONG_BUY",
-      "volume": 6546933.013559052,
-      "liquidity": 1028885.04559,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 6547008.071058051,
+      "liquidity": 1021225.55965,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-james-talarico-win-the-2028-us-presidential-election"
     },
     {
@@ -902,9 +902,9 @@
       "underpricedPrice": 0.0055,
       "signal": "STRONG_BUY",
       "volume": 22740924.661309708,
-      "liquidity": 1915044.20166,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 1914712.83423,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-mark-cuban-win-the-2028-democratic-presidential-nomination-329"
     },
     {
@@ -919,10 +919,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0055,
       "signal": "STRONG_BUY",
-      "volume": 31857170.645377327,
-      "liquidity": 1844316.64835,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 31857172.945377328,
+      "liquidity": 1846467.89689,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-raphael-warnock-win-the-2028-democratic-presidential-nomination-914"
     },
     {
@@ -937,10 +937,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0055,
       "signal": "STRONG_BUY",
-      "volume": 25418756.160907935,
-      "liquidity": 1759881.06263,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 25418772.218507934,
+      "liquidity": 1760847.82394,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-corey-booker-win-the-2028-democratic-presidential-nomination-125"
     },
     {
@@ -955,10 +955,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0055,
       "signal": "STRONG_BUY",
-      "volume": 43797618.68733382,
-      "liquidity": 1209624.11666,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 43797725.49453381,
+      "liquidity": 1210627.26434,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-person-a-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -974,9 +974,9 @@
       "underpricedPrice": 0.0055,
       "signal": "STRONG_BUY",
       "volume": 17027001.251786657,
-      "liquidity": 1937447.73761,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 1938112.75361,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-chris-murphy-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -991,10 +991,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0055,
       "signal": "STRONG_BUY",
-      "volume": 12382621.155125028,
-      "liquidity": 649733.41284,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 12382623.653725028,
+      "liquidity": 643774.77891,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-jb-pritzker-win-the-2028-us-presidential-election"
     },
     {
@@ -1010,9 +1010,9 @@
       "underpricedPrice": 0.0055,
       "signal": "STRONG_BUY",
       "volume": 28425263.865101214,
-      "liquidity": 2080709.94988,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 2080103.66888,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-nikki-haley-win-the-2028-us-presidential-election"
     },
     {
@@ -1027,10 +1027,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0045,
       "signal": "STRONG_BUY",
-      "volume": 38535851.113934636,
-      "liquidity": 2509669.92177,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 38535852.263934635,
+      "liquidity": 2510093.65357,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-zohran-mamdani-win-the-2028-democratic-presidential-nomination-445"
     },
     {
@@ -1045,10 +1045,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0045,
       "signal": "STRONG_BUY",
-      "volume": 43733267.461686835,
-      "liquidity": 2764766.88056,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 43733307.367436826,
+      "liquidity": 2764015.73357,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-lebron-james-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1063,10 +1063,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0045,
       "signal": "STRONG_BUY",
-      "volume": 54164649.75061909,
-      "liquidity": 2811420.53837,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 54164688.2558691,
+      "liquidity": 2809347.52133,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-oprah-winfrey-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1082,9 +1082,9 @@
       "underpricedPrice": 0.0045,
       "signal": "STRONG_BUY",
       "volume": 8270270.031419019,
-      "liquidity": 1130031.44459,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 1129822.77539,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-ruben-gallego-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1100,9 +1100,9 @@
       "underpricedPrice": 0.0045,
       "signal": "STRONG_BUY",
       "volume": 7800099.081845099,
-      "liquidity": 699459.46862,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 696472.426,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-ivanka-trump-win-the-2028-us-presidential-election"
     },
     {
@@ -1117,10 +1117,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
-      "volume": 35516894.54900297,
-      "liquidity": 2184638.40075,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 35516904.54900297,
+      "liquidity": 2185399.05198,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-gina-raimondo-win-the-2028-democratic-presidential-nomination-676"
     },
     {
@@ -1135,10 +1135,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
-      "volume": 24333213.973410197,
-      "liquidity": 2297048.58484,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 24333215.853410196,
+      "liquidity": 2296373.94636,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-john-fetterman-win-the-2028-democratic-presidential-nomination-941"
     },
     {
@@ -1153,10 +1153,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
-      "volume": 33797275.35067662,
-      "liquidity": 2365376.92462,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 33797281.57967662,
+      "liquidity": 2365128.27798,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-barack-obama-win-the-2028-democratic-presidential-nomination-265"
     },
     {
@@ -1172,9 +1172,9 @@
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
       "volume": 43457868.09552085,
-      "liquidity": 2808054.64897,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 2810894.32782,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-hillary-clinton-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1189,10 +1189,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
-      "volume": 41965406.97256864,
-      "liquidity": 2774976.3545,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 41965441.54456763,
+      "liquidity": 2776581.72438,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-phil-murphy-win-the-2028-democratic-presidential-nomination-611"
     },
     {
@@ -1207,10 +1207,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
-      "volume": 42870446.52851553,
-      "liquidity": 2743390.77112,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 42870458.27851553,
+      "liquidity": 2742914.12045,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-george-clooney-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1226,9 +1226,9 @@
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
       "volume": 42534496.670519665,
-      "liquidity": 2624381.85637,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 2623322.02157,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-beto-orourke-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1244,9 +1244,9 @@
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
       "volume": 7782554.810689987,
-      "liquidity": 2303059.75303,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 2303381.99261,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-graham-platner-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1262,9 +1262,9 @@
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
       "volume": 178975.389116,
-      "liquidity": 691703.19124,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 691588.72291,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-elissa-slotkin-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1279,10 +1279,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
-      "volume": 37419606.13495809,
-      "liquidity": 1487547.301,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 37419608.27895809,
+      "liquidity": 1486811.07997,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-vivek-ramaswamy-win-the-2028-us-presidential-election"
     },
     {
@@ -1297,10 +1297,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
-      "volume": 21482123.10896763,
-      "liquidity": 1929784.79068,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 21482210.67030063,
+      "liquidity": 1922459.90943,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-zohran-mamdani-win-the-2028-us-presidential-election"
     },
     {
@@ -1316,9 +1316,9 @@
       "underpricedPrice": 0.0035,
       "signal": "STRONG_BUY",
       "volume": 18364596.92182397,
-      "liquidity": 2208552.29493,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 2203829.17502,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-eric-trump-win-the-2028-us-presidential-election"
     },
     {
@@ -1334,9 +1334,9 @@
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
       "volume": 42703544.00593419,
-      "liquidity": 2781686.6232,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 2783602.96381,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-tim-walz-win-the-2028-democratic-presidential-nomination-475"
     },
     {
@@ -1351,10 +1351,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 27147174.197658837,
-      "liquidity": 895607.89413,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 27147256.799158834,
+      "liquidity": 894320.09042,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-jared-polis-win-the-2028-democratic-presidential-nomination-837"
     },
     {
@@ -1370,9 +1370,9 @@
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
       "volume": 38278383.90349304,
-      "liquidity": 2464835.1672,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 2463352.35603,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209328,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-liz-cheney-win-the-2028-democratic-presidential-nomination-551"
     },
     {
@@ -1387,10 +1387,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 40289204.23395177,
-      "liquidity": 2620876.5271,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 40290337.923451774,
+      "liquidity": 2623232.73805,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-mrbeast-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1405,10 +1405,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 48393013.16554196,
-      "liquidity": 2666799.79887,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 48393017.12054197,
+      "liquidity": 2665056.28098,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-andrew-yang-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1423,10 +1423,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 42256178.86099921,
-      "liquidity": 2836147.35176,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 42256245.33349921,
+      "liquidity": 2835220.94001,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-kim-kardashian-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1442,9 +1442,9 @@
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
       "volume": 116023.51299999999,
-      "liquidity": 1064710.14369,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 1065799.98672,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-josh-stein-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1459,10 +1459,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 33244997.000286665,
-      "liquidity": 1222285.85602,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 33245079.833786666,
+      "liquidity": 1222089.15619,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-stephen-smith-win-the-2028-us-presidential-election"
     },
     {
@@ -1477,10 +1477,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 54439254.329926424,
-      "liquidity": 2352074.92733,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 54439261.07910242,
+      "liquidity": 2351933.98851,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-lebron-james-win-the-2028-us-presidential-election"
     },
     {
@@ -1495,10 +1495,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0025,
       "signal": "STRONG_BUY",
-      "volume": 39696287.42011647,
-      "liquidity": 1968940.88274,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 39696582.80461646,
+      "liquidity": 1967826.63886,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-kim-kardashian-win-the-2028-us-presidential-election"
     },
     {
@@ -1514,9 +1514,9 @@
       "underpricedPrice": 0.0015,
       "signal": "STRONG_BUY",
       "volume": 139394.85816600002,
-      "liquidity": 820348.70953,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 814593.90348,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-abigail-spanberger-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1532,9 +1532,9 @@
       "underpricedPrice": 0.0015,
       "signal": "STRONG_BUY",
       "volume": 146716.30616600005,
-      "liquidity": 914782.89921,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 916071.76616,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-hakeem-jeffries-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1550,9 +1550,9 @@
       "underpricedPrice": 0.0015,
       "signal": "STRONG_BUY",
       "volume": 71208.629833,
-      "liquidity": 760260.99517,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 761201.32833,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-adam-schiff-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1568,9 +1568,9 @@
       "underpricedPrice": 0.0015,
       "signal": "STRONG_BUY",
       "volume": 125211.83899900001,
-      "liquidity": 630669.42948,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "liquidity": 631731.16743,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/democratic-presidential-nominee-2028/will-alex-padilla-win-the-2028-democratic-presidential-nomination"
     },
     {
@@ -1585,10 +1585,10 @@
       "underpricedSide": "YES",
       "underpricedPrice": 0.0015,
       "signal": "STRONG_BUY",
-      "volume": 44321483.39264005,
-      "liquidity": 2352230.32213,
-      "updatedAt": "2026-07-26T14:43:05.945208Z",
-      "timeLeft": 72090890526,
+      "volume": 44321484.792640045,
+      "liquidity": 2352165.09753,
+      "updatedAt": "2026-07-26T15:43:07.224305Z",
+      "timeLeft": 72087209327,
       "marketUrl": "https://polymarket.com/event/presidential-election-winner-2028/will-tim-walz-win-the-2028-us-presidential-election"
     }
   ]
